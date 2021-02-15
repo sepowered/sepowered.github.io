@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign In - KokoaTalk</title>
+</head>
+<body>
+    <div class="status-bar">
+        <!--BEM(Block Element Modifier)-->
+        <div class="status-bar__column">
+            <i class="fas fa-signal"></i>
+            <span>Verizon</span>
+        </div>
+        <div class="status-bar__column">
+            <span>9:41</span>
+        </div>
+        <div class="status-bar__column">
+            <span>80%</span>
+            <i class="fas fa-battery-three-quarters fa-lg"></i>
+            <i class="fas fa-bolt"></i>
+        </div>
+    </div>
+
+    <header class="welcome-header">
+        <h1 class="welcome-header__title">Welcome to KokoaTalk</h1>
+        <p class="welcome-header__text"> If you have a Kokoa Account, sign in with your email or phone number.</p>
+    </header>
+
+    <form action="friends.html" method="get" id="login-form">
+        <!--form을 보낼 수 있는 방법.-->
+        <input required name="username" type="text" placeholder="Email or phone number">
+        <input required name="password" type="password" placeholder="Password">
+        <input type="submit" value="Sign in ">
+        <a href="#">Find Kokoa Account or Password</a>
+    </form>
+    <div id="no-mobile">
+        <span>Sorry, We are not supporting this service on the desktop right now.</span>
+    </div>
+    <!--JS는 항상 Body끝쪽, 마지막에 가있어야 한다.-->
+    <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous">
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+@import "reset.css";
+/*reset.css를 활용하면, Browser에서 지정되는 style을 무시하고 처음부터 새로 시작할 수 있다.*/
+@import "variables.css";
+/* Components */
+@import "comp/statusbar.css";
+@import "comp/nav-bar.css";
+@import "comp/view-header.css";
+@import "comp/user-comp.css";
+@import "comp/badge.css";
+@import "comp/icon-row.css";
+@import "comp/alt-screen-header.css";
+@import "comp/no-mobile.css";
+/* Views */
+@import "view/login.css";
+@import "view/friends.css";
+@import "view/find.css";
+@import "view/more.css";
+@import "view/settings.css";
+@import "view/chating.css";
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Open Sans",
+    "Helvetica Neue", sans-serif;
+  color: #2e363e;
+}
+
+.welcome-header {
+  margin: 72px 0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /*방향을 전환할때는 flex-direction*/
+  align-items: center;
+}
+
+.welcome-header__title {
+  margin-bottom: 32px;
+  font-size: 24px;
+}
+
+.welcome-header__text {
+  width: 50%;
+  opacity: 0.7;
+}
+
+.main-view {
+  padding: 0px var(--horizontal-space);
+}

@@ -1,0 +1,43 @@
+#login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 32px;
+}
+
+#login-form input {
+  border: none;
+  padding: 16px 0px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+#login-form input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#login-form input:not([type="submit"]) {
+  border-bottom: 1.6px solid rgba(0, 0, 0, 0.2);
+  transition: border-color 0.2s ease-in-out;
+}
+/*not은 이것을 제외한 나머지에 적용하고 싶다는 의미로, 중복되서 적용해서는 안된다.
+  대괄호를 사용하는 부분은 attribute selector이다.*/
+
+#login-form input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--yellow);
+}
+/*순차식 적용이 원칙인 CSS를 보아하니 뒤로 빼면 일단 되는 경우가 있음.*/
+
+#login-form input[type="submit"] {
+  background-color: var(--yellow);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#login-form a {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  /*inherit는 상속. a가 색상을 아버지로부터 상속받아 오는 것.*/
+  font-size: 14px;
+}

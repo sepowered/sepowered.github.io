@@ -1,0 +1,30 @@
+.view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--horizontal-space);
+  padding-top: 48px;
+  margin-bottom: 16px;
+}
+
+.view-header__title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.view-header__icons span {
+  margin-left: 24px;
+}
+
+@keyframes rotateCog {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.view-header__icons .fa-cog:hover {
+  animation: rotateCog 1s linear infinite;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Chats - KokoaTalk</title>
+</head>
+<body>
+    <div class="status-bar">
+        <!--BEM(Block Element Modifier)-->
+        <div class="status-bar__column">
+            <i class="fas fa-signal"></i>
+            <span>Verizon</span>
+        </div>
+        <div class="status-bar__column">
+            <span>9:41</span>
+        </div>
+        <div class="status-bar__column">
+            <span>80%</span>
+            <i class="fas fa-battery-three-quarters fa-lg"></i>
+            <i class="fas fa-bolt"></i>
+        </div>
+    </div>
+    <header class="view-header">
+        <h1 class="view-header__title">Chats</h1>
+        <div class="view-header__icons">
+            <span><i class="fas fa-search fa-lg"></i></span>
+            <span><i class="far fa-comments fa-lg"></i></span>
+            <span><i class="fas fa-music fa-lg"></i></span>
+            <span><i class="fas fa-cog fa-lg"></i></span>
+        </div>
+    </header>
+
+    <main class="main-view">
+        <a href="chating.html">
+        <div class="user-comp">
+            <div class="user-comp__column">
+                <img src="res/profile01.png" class="user-comp__avatar">
+                <div class="user-comp__text">
+                <h4 class="user-comp__title">Sans</h4>
+                <h6 class="user-comp__subtitle">Pen Pineapple Apple Pen</h6>
+            </div>
+        </div>
+        <div class="user-comp__column">
+            <span class="user-comp__time">12:30</span>
+            <div class="badge">1</div>
+        </div>
+    </div>
+        </a>
+    </main>
+
+    <nav class="nav">
+        <ul class="nav__li" >
+            <li class="nav__btn"><a class="nav__link" href="friends.html"><i class="far fa-user fa-2x"></i></a></li>
+            <li class="nav__btn"><a class="nav__link" href="chat.html">
+                <span class="nav__notification badge">1</span><i class="fas fa-comment fa-2x"></i></i></a></li>
+            <li class="nav__btn"><a class="nav__link" href="find.html"><i class="fas fa-search fa-2x"></i></a></li>
+            <li class="nav__btn"><a class="nav__link" href="more.html"><i class="fas fa-ellipsis-h fa-2x"></i></a></li>
+        </ul>
+    </nav>
+    <div id="no-mobile">
+        <span>Sorry, We are not supporting this service on the desktop right now.</span>
+    </div>
+    <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous">
+    </script>
+</body>
+</html>

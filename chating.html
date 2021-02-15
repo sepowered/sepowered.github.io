@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Chat with Sans - KokoaTalk</title>
+</head>
+<body id="chat-screen">
+    <div class="status-bar">
+        <!--BEM(Block Element Modifier)-->
+        <div class="status-bar__column">
+            <i class="fas fa-signal"></i>
+            <span>Verizon</span>
+        </div>
+        <div class="status-bar__column">
+            <span>9:41</span>
+        </div>
+        <div class="status-bar__column">
+            <span>80%</span>
+            <i class="fas fa-battery-three-quarters fa-lg"></i>
+            <i class="fas fa-bolt"></i>
+        </div>
+    </div>
+    
+    <header class="alt-header">
+        <div class="alt-header__column">
+            <a href="chat.html">
+                <i class="fas fa-angle-left fa-3x"></i>
+            </a>
+        </div>
+        <div class="alt-header__column">
+            <h1 class="alt-header__title">Sans</h1>
+        </div>
+        <div class="alt-header__column">
+            <span><i class="fas fa-search fa-2x"></i></span>
+            <span><i class="fas fa-bars fa-2x"></i></span>
+        </div>
+    </header>
+
+    <main class="main-screen main-chat">
+        <div id="timestampsucks">
+            <div class="chat__timestamp">
+                Monday, Feb 15, 2021
+            </div>
+        </div>
+        <div class="message-row" id="leftbubble">
+                <img src="res/profile01.png">
+                <div class="message-row__content">
+                    <span class="message__author">Sans</span>
+                    <div class="message__info">
+                        <span class="message__bubble">Pen Pineapple Apple Pen</span>
+                        <span class="message__time">12:30</span>
+                    </div>
+                </div>
+        </div>
+        <div class="message-row message-row--own" id="rightbubble">
+            <div class="message-row__content">
+                <div class="message__info">
+                    <span class="message__bubble">Wow! Sans!!!</span>
+                    <span class="message__time">12:30</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <form class="reply">
+        <div class="reply__column">
+            <i class="far fa-plus-square fa-lg"></i>
+        </div>
+        <div class="reply__column">
+            <div class="reply__column">
+                <input type="text" placeholder="Write a Message">
+                <i class="far fa-smile-wink fa-lg"></i>
+                <button>
+                    <i class="fas fa-arrow-up fa-lg"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div id="no-mobile">
+        <span>Sorry, We are not supporting this service on the desktop right now.</span>
+    </div>
+    <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous">
+    </script>
+</body>
+</html>
