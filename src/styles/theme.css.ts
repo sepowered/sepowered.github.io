@@ -3,6 +3,7 @@ import { createThemeContract, createTheme, createGlobalTheme } from '@vanilla-ex
 const sizes = {
   appWidth: '758px',
   appInlineSpace: '24px',
+  sidebarWidth: '210px',
 };
 
 const fonts = {
@@ -132,6 +133,11 @@ const layouts = {
   },
 };
 
+const zIndices = {
+  overlay: '100',
+  modal: '200',
+};
+
 export const colors = createThemeContract({
   gray: {
     accent: '--semantic-colors-gray-accent',
@@ -196,4 +202,11 @@ export const darkColors = createTheme(colors, {
   },
 });
 
-export const theme = createGlobalTheme(':root', { colors, fonts, sizes, layouts, typographies });
+export const theme = createGlobalTheme(':root', {
+  colors,
+  fonts,
+  sizes,
+  layouts,
+  typographies,
+  zIndices,
+});

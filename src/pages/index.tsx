@@ -3,7 +3,7 @@ import React from 'react';
 
 import Layout from '@/components/common/Layout';
 import ProfileGrid from '@/components/index/ProfileGrid';
-import { SITE } from '@/constants/metadata';
+import { siteMetadata } from '@/constants/siteMetadata';
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -15,4 +15,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>{SITE.title}</title>;
+export const Head: HeadFC = () => <title>{siteMetadata.title}</title>;

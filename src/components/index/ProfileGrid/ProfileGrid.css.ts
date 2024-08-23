@@ -10,9 +10,7 @@ export const root = style({
   paddingTop: '100px',
   gap: '65px',
 
-  ...breakpoint({
-    '1280px': { gridTemplateColumns: '1fr 1fr' },
-  }),
+  ...breakpoint({ tablet: { gridTemplateColumns: '1fr 1fr' } }),
 });
 
 export const container = style({
@@ -52,4 +50,53 @@ export const cardProfileContent = style({
   ...theme.typographies.profile_title,
   color: '#302C1D',
   whiteSpace: 'pre-wrap',
+});
+
+export const profileModalButton = style({
+  ...theme.layouts.center,
+  position: 'absolute',
+  top: '15px',
+  right: '15px',
+  width: '28px',
+  height: '28px',
+  userSelect: 'none',
+  borderRadius: '50%',
+  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+});
+
+export const profileModalButtonIcon = style({
+  fontSize: '1.25rem',
+  fontWeight: 500,
+});
+
+export const dialogOverlay = style({
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  display: 'grid',
+  placeItems: 'center',
+  overflowY: 'auto',
+  backgroundColor: 'rgba(0, 0, 0, 0.2)',
+  backdropFilter: 'blur(11px)',
+  zIndex: theme.zIndices.overlay,
+});
+
+export const dialogContainer = style({
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '100%',
+  maxWidth: '958px',
+  paddingBlock: '62px',
+  paddingInline: '76px',
+  border: `1px solid rgba(0, 0, 0, 0.03)`,
+  borderRadius: '14px',
+  boxShadow: `
+    inset 0px -2px 2px rgba(255, 255, 255, 0.3),
+    inset 0px 2px 2px rgba(255, 255, 255, 0.3)
+  `,
+  zIndex: theme.zIndices.modal,
 });

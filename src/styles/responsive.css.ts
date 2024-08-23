@@ -3,9 +3,9 @@ import { StyleRule } from '@vanilla-extract/css';
 type BP = 'mobile' | 'tablet' | 'desktop' | string;
 
 export const breakpoints = {
-  mobile: '480px',
-  tablet: '768px',
-  desktop: '1024px',
+  mobile: '640px',
+  tablet: '960px',
+  desktop: '1280px',
 };
 
 export const breakpoint = (rules: Partial<Record<BP, StyleRule>>) => {

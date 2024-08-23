@@ -1,17 +1,21 @@
 import { style } from '@vanilla-extract/css';
 
+import { breakpoint } from '@/styles/responsive.css';
 import { theme } from '@/styles/theme.css';
 
 export const root = style({
   ...theme.layouts.rowBetween,
   position: 'fixed',
+  display: 'none',
   top: 0,
   left: 0,
   flexDirection: 'column',
-  width: '210px',
+  width: theme.sizes.sidebarWidth,
   height: '100dvh',
   paddingInline: '40px',
   paddingBlock: '44px',
+
+  ...breakpoint({ tablet: { display: 'flex' } }),
 });
 
 export const topContainer = style({
@@ -46,11 +50,13 @@ export const navList = style({
 export const navItem = style({
   width: '100%',
   height: '40px',
+  color: theme.colors.gray.mid,
   borderRadius: '10px',
   transition: 'background-color 0.2s',
 });
 
 export const navItemActive = style({
+  color: theme.colors.gray.accent,
   backgroundColor: theme.colors.border,
 });
 
@@ -60,7 +66,6 @@ export const navLink = style({
   width: '100%',
   height: '100%',
   paddingInline: '10px',
-  color: theme.colors.gray.mid,
 });
 
 export const bottomContainer = style({

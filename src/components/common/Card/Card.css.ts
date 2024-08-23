@@ -3,6 +3,7 @@ import { style } from '@vanilla-extract/css';
 import { theme } from '@/styles/theme.css';
 
 export const root = style({
+  position: 'relative',
   width: '100%',
   height: '183px',
   marginTop: '30px',

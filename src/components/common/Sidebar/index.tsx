@@ -4,7 +4,8 @@ import dayjs from 'dayjs';
 import { Link } from 'gatsby';
 import React from 'react';
 
-import { MENU, SITE } from '@/constants/metadata';
+import { menuItems } from '@/constants/menu';
+import { siteMetadata } from '@/constants/siteMetadata';
 import { useTheme } from '@/hooks/useTheme';
 
 import * as styles from './Sidebar.css';
@@ -17,12 +18,12 @@ const Sidebar: React.FC = () => {
     <aside className={styles.root}>
       <div className={styles.topContainer}>
         <Link to="/" className={styles.branding}>
-          {SITE.title}
+          {siteMetadata.title}
         </Link>
         <hr className={styles.divider} />
         <nav>
           <ul className={styles.navList}>
-            {MENU.map(menu => (
+            {menuItems.map(menu => (
               <li
                 key={menu.link}
                 className={clsx(styles.navItem, pathname === menu.link && styles.navItemActive)}
@@ -40,7 +41,7 @@ const Sidebar: React.FC = () => {
           {theme === 'light' ? '🌚 Dark' : '🌞 Light'} mode
         </button>
         <p className={styles.license}>
-          Copyright © {dayjs().year()} {SITE.title} All rights reserved.
+          Copyright © {dayjs().year()} {siteMetadata.username}, All rights reserved.
         </p>
       </div>
     </aside>
