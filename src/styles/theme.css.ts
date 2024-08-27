@@ -15,7 +15,7 @@ const typographies = {
   h7: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '12px',
+    fontSize: '10px',
     lineHeight: '18px',
   },
   h6: {
@@ -135,6 +135,7 @@ const layouts = {
 
 const zIndices = {
   overlay: '100',
+  headerContainer: '150',
   modal: '200',
 };
 

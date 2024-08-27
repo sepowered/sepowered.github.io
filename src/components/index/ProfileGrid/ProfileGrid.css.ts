@@ -7,10 +7,15 @@ export const root = style({
   display: 'grid',
   gridTemplateColumns: '1fr',
   width: '100%',
-  paddingTop: '100px',
+  paddingTop: '42.5px',
   gap: '65px',
 
-  ...breakpoint({ tablet: { gridTemplateColumns: '1fr 1fr' } }),
+  ...breakpoint({
+    tablet: {
+      gridTemplateColumns: '1fr 1fr',
+      paddingTop: '100px',
+    },
+  }),
 });
 
 export const container = style({
