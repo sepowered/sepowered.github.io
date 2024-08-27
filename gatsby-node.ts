@@ -19,3 +19,55 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     },
   });
 };
+
+export const createPages: GatsbyNode['createPages'] = async ({
+  graphql,
+  actions,
+  reporter,
+  store,
+}) => {
+  const { createPage } = actions;
+
+  type MdxQueryResult = {
+    allMdx: {
+      edges: {
+        node: {
+          id: string;
+          frontmatter: {
+            slug: string;
+          };
+        };
+      }[];
+    };
+  };
+
+  const result = await graphql<MdxQueryResult>(`
+    query GetAllMdxPosts {
+      allMdx {
+        edges {
+          node {
+            id
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    reporter.panicOnBuild('🚨  MDX 쿼리에 오류가 발생했습니다.', result.errors);
+    return;
+  }
+
+  const posts = result.data?.allMdx.edges;
+
+  posts?.forEach(({ node }) => {
+    createPage({
+      path: `/blog/${node.frontmatter.slug}`,
+      component: path.resolve(`./src/templates/BlogPostTemplate.tsx`),
+      context: { id: node.id },
+    });
+  });
+};
