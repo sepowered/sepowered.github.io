@@ -7,15 +7,9 @@ export const root = style({
   display: 'grid',
   gridTemplateColumns: '1fr',
   width: '100%',
-  paddingTop: '42.5px',
   gap: '65px',
 
-  ...breakpoint({
-    tablet: {
-      gridTemplateColumns: '1fr 1fr',
-      paddingTop: '100px',
-    },
-  }),
+  ...breakpoint({ tablet: { gridTemplateColumns: '1fr 1fr' } }),
 });
 
 export const container = style({
@@ -35,7 +29,7 @@ export const cardProfileContainer = style({
   alignItems: 'flex-start',
 });
 
-export const cardProfileUsername = style({
+export const cardProfileAuthor = style({
   ...theme.typographies.profile_name,
   width: '100%',
   textAlign: 'center',

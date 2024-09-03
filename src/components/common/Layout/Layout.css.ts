@@ -17,3 +17,9 @@ export const root = style({
     desktop: { maxWidth: theme.sizes.appWidth, paddingLeft: 0 },
   }),
 });
+
+export const main = style({
+  ...theme.layouts.column,
+  paddingTop: '42.5px',
+  ...breakpoint({ tablet: { paddingTop: '100px' } }),
+});

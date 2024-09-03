@@ -3,12 +3,14 @@ import React from 'react';
 
 import Card from '@/components/common/Card';
 import { playlistEmbedUrl, profile } from '@/constants/profile';
-import { siteMetadata } from '@/constants/siteMetadata';
+import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
 import ProfileDialog from './ProfileDialog';
 import * as styles from './ProfileGrid.css';
 
 const ProfileGrid = () => {
+  const { author } = useSiteMetadata();
+
   return (
     <section className={styles.root}>
       <div className={styles.container}>
@@ -22,11 +24,8 @@ const ProfileGrid = () => {
                 alt="profile"
                 style={{ boxShadow: `0px 10px 39px ${profile.profileImageShadowColor}` }}
               />
-              <p
-                className={styles.cardProfileUsername}
-                style={{ color: profile.usernameTextColor }}
-              >
-                {siteMetadata.username}
+              <p className={styles.cardProfileAuthor} style={{ color: profile.authorTextColor }}>
+                {author}
               </p>
             </div>
             <div className={styles.cardProfileContainer}>

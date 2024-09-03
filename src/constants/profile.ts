@@ -4,7 +4,7 @@ export const profile = {
 
   profileImageUrl: '/assets/images/profile.webp',
   profileImageShadowColor: 'rgba(232, 114, 24, 0.43)',
-  usernameTextColor: '#302C1D',
+  authorTextColor: '#302C1D',
 
   titleTextColor: '#CAA937',
   contentTextColor: '#302C1D',

@@ -11,3 +11,7 @@ globalStyle('body', {
   overflowX: 'hidden',
   backgroundColor: theme.colors.background,
 });
+
+globalStyle('img', {
+  userSelect: 'none',
+});

@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'gatsby';
 import React, { useState } from 'react';
 
-import { siteMetadata } from '@/constants/siteMetadata';
+import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
 import * as styles from './Header.css';
 import Divider from '../Divider';
@@ -12,6 +12,8 @@ import NavigateMenu from '../NavigateMenu';
 import ThemeToggle from '../ThemeToggle';
 
 const Header = () => {
+  const { title, author } = useSiteMetadata();
+
   const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
 
   return (
@@ -33,7 +35,7 @@ const Header = () => {
         <header className={styles.root}>
           <div className={styles.inner}>
             <Link to="/" className={styles.branding}>
-              {siteMetadata.title}
+              {title}
             </Link>
 
             <Accordion.Item className={styles.menuContainer} value="menu">
@@ -47,7 +49,7 @@ const Header = () => {
                     <ThemeToggle />
                   </div>
                   <p className={styles.license}>
-                    Copyright © {dayjs().year()} {siteMetadata.username}, All rights reserved.
+                    Copyright © {dayjs().year()} {author}, All rights reserved.
                   </p>
                 </div>
               </Accordion.Content>

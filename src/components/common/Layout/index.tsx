@@ -10,11 +10,11 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <main className={styles.root}>
+    <div className={styles.root}>
       <Sidebar />
       <Header />
-      {children}
-    </main>
+      <main className={styles.main}>{children}</main>
+    </div>
   );
 };
 

@@ -15,9 +15,9 @@ export const query = graphql`
   }
 `;
 
-type BlogPostPageProps = PageProps<Queries.BlogPostTemplateQuery>;
+type BlogPostTemplateProps = PageProps<Queries.BlogPostTemplateQuery>;
 
-const BlogPostTemplate = ({ data }: BlogPostPageProps) => {
+const BlogPostTemplate = ({ data }: BlogPostTemplateProps) => {
   const { mdx } = data;
   return <div>{JSON.stringify(mdx)}</div>;
 };
