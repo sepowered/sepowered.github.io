@@ -8,7 +8,7 @@ import ProfileGrid from '@/components/index/ProfileGrid';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 import { rem } from '@/utils/pxto';
 
-import * as styles from './pages.css';
+import * as styles from '../styles/pages.css';
 
 export const query = graphql`
   query LatestBlogPosts {
