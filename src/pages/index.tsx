@@ -1,17 +1,21 @@
-import { graphql, HeadFC, PageProps } from 'gatsby';
+import { clsx } from 'clsx';
+import { graphql, Link, PageProps } from 'gatsby';
 import React from 'react';
 
 import Layout from '@/components/common/Layout';
-import LatestPostsGrid from '@/components/index/LatestPostsGrid';
+import PostsGrid from '@/components/common/PostsGrid';
 import ProfileGrid from '@/components/index/ProfileGrid';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
+import { rem } from '@/utils/pxto';
+
+import * as styles from './pages.css';
 
 export const query = graphql`
   query LatestBlogPosts {
     allMdx(
-      limit: 2
+      limit: 4
       sort: { frontmatter: { date: DESC } }
-      filter: { internal: { contentFilePath: { regex: "/^(.*/contents/posts/)(.*)$/" } } }
+      filter: { internal: { contentFilePath: { regex: "/^(.*/content/posts/)(.*)$/" } } }
     ) {
       nodes {
         id
@@ -39,14 +43,23 @@ const IndexPage = ({ data }: IndexPageProps) => {
   return (
     <Layout>
       <ProfileGrid />
-      <LatestPostsGrid posts={posts} />
+
+      <section className={styles.root}>
+        <div className={styles.titleContainer}>
+          <h3 className={styles.title}>Update</h3>
+          <Link to={'/blog/'} className={styles.expandLink}>
+            Expand<span className={clsx(styles.expandIcon, 'material-symbols-rounded')}>add</span>
+          </Link>
+        </div>
+        <PostsGrid style={{ marginTop: rem(30) }} posts={posts} />
+      </section>
     </Layout>
   );
 };
 
 export default IndexPage;
 
-export const Head: HeadFC = () => {
+export const Head = () => {
   const { title } = useSiteMetadata();
   return <title>{title}</title>;
 };

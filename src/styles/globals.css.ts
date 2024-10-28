@@ -1,4 +1,5 @@
 import './reset.css';
+import './article.css';
 
 import { globalStyle } from '@vanilla-extract/css';
 

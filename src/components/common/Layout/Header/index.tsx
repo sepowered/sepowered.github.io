@@ -2,14 +2,14 @@ import * as Accordion from '@radix-ui/react-accordion';
 import dayjs from 'dayjs';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'gatsby';
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
-import * as styles from './Header.css';
-import Divider from '../Divider';
+import Divider from '../../Divider';
 import NavigateMenu from '../NavigateMenu';
 import ThemeToggle from '../ThemeToggle';
+import * as styles from './styles.css';
 
 const Header = () => {
   const { title, author } = useSiteMetadata();
@@ -17,7 +17,7 @@ const Header = () => {
   const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
 
   return (
-    <>
+    <Fragment>
       <Accordion.Root type="single" value={accordionOpen ? 'menu' : ''} collapsible>
         <AnimatePresence>
           {accordionOpen && (
@@ -61,7 +61,7 @@ const Header = () => {
       <div className={styles.dividerContainer}>
         <Divider />
       </div>
-    </>
+    </Fragment>
   );
 };
 

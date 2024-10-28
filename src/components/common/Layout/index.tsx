@@ -1,14 +1,14 @@
 import React from 'react';
 
 import Header from './Header';
-import * as styles from './Layout.css';
 import Sidebar from './Sidebar';
+import * as styles from './styles.css';
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.root}>
       <Sidebar />

@@ -4,8 +4,8 @@ import React from 'react';
 
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
-import * as styles from './Sidebar.css';
-import Divider from '../Divider';
+import * as styles from './styles.css';
+import Divider from '../../Divider';
 import NavigateMenu from '../NavigateMenu';
 import ThemeToggle from '../ThemeToggle';
 

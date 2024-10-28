@@ -6,7 +6,7 @@ import { playlistEmbedUrl, profile } from '@/constants/profile';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
 import ProfileDialog from './ProfileDialog';
-import * as styles from './ProfileGrid.css';
+import * as styles from './styles.css';
 
 const ProfileGrid = () => {
   const { author } = useSiteMetadata();
@@ -47,7 +47,7 @@ const ProfileGrid = () => {
           <ProfileDialog>
             <button className={styles.profileModalButton} type="button">
               <span
-                className={clsx('material-symbols-outlined', styles.profileModalButtonIcon)}
+                className={clsx('material-symbols-rounded', styles.profileModalButtonIcon)}
                 style={{ color: profile.modalButtonColor }}
               >
                 add

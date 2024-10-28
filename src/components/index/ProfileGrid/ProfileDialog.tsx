@@ -1,14 +1,14 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
 import { profile } from '@/constants/profile';
 
-import * as styles from './ProfileGrid.css';
+import * as styles from './styles.css';
 
 type ProfileDialogProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const ProfileDialog = ({ children }: ProfileDialogProps) => {
@@ -35,7 +35,7 @@ const ProfileDialog = ({ children }: ProfileDialogProps) => {
               <Dialog.Close asChild>
                 <button className={styles.profileModalButton}>
                   <span
-                    className={clsx(styles.profileModalButtonIcon, 'material-symbols-outlined')}
+                    className={clsx(styles.profileModalButtonIcon, 'material-symbols-rounded')}
                     style={{ color: profile.modalButtonColor }}
                   >
                     close

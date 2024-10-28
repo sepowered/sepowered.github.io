@@ -1,12 +1,12 @@
 import { clsx } from 'clsx';
-import React, { forwardRef } from 'react';
+import React, { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react';
 
-import * as styles from './Card.css';
+import * as styles from './styles.css';
 
 type CardProps = {
   className?: string;
-  children: React.ReactNode;
-} & React.ComponentPropsWithoutRef<'div'>;
+  children: ReactNode;
+} & ComponentPropsWithoutRef<'div'>;
 
 const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
   { className, children, ...props },
@@ -21,7 +21,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
 
 type CardContentProps = {
   gap?: number;
-} & React.ComponentPropsWithoutRef<'div'>;
+} & ComponentPropsWithoutRef<'div'>;
 
 const CardContent = forwardRef<HTMLDivElement, CardContentProps>(function CardContent(
   { children, gap = 0, ...props },

@@ -5,7 +5,7 @@ import React from 'react';
 
 import { menuItems } from '@/constants/menu';
 
-import * as styles from './NavigateMenu.css';
+import * as styles from './styles.css';
 
 const NavigateMenu = () => {
   const { pathname } = useLocation();

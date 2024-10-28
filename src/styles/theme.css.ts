@@ -1,9 +1,11 @@
 import { createThemeContract, createTheme, createGlobalTheme } from '@vanilla-extract/css';
 
+import { rem } from '@/utils/pxto';
+
 const sizes = {
-  appWidth: '758px',
-  appInlineSpace: '24px',
-  sidebarWidth: '210px',
+  appWidth: rem(758),
+  appInlineSpace: rem(24),
+  sidebarWidth: rem(210),
 };
 
 const fonts = {
@@ -15,85 +17,85 @@ const typographies = {
   h7: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '10px',
-    lineHeight: '18px',
+    fontSize: rem(10),
+    lineHeight: rem(18),
   },
   h6: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '11px',
-    lineHeight: '18px',
+    fontSize: rem(11),
+    lineHeight: rem(18),
   },
   h5: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '12px',
+    fontSize: rem(12),
     lineHeight: 'auto',
   },
   h4: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '13px',
+    fontSize: rem(13),
     lineHeight: 'auto',
   },
   h3: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '15px',
-    lineHeight: '15px',
+    fontSize: rem(15),
+    lineHeight: rem(15),
   },
   post_subtitle: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '15px',
-    lineHeight: '26px',
+    fontSize: rem(15),
+    lineHeight: rem(26),
   },
   post_title: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '24px',
-    lineHeight: '40px',
+    fontSize: rem(24),
+    lineHeight: rem(40),
   },
   post_description: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '13px',
-    lineHeight: '26px',
+    fontSize: rem(13),
+    lineHeight: rem(26),
   },
   post_image_description: {
     fontFamily: fonts.sans,
     fontWeight: '400',
-    fontSize: '15px',
-    lineHeight: '13px',
+    fontSize: rem(15),
+    lineHeight: rem(13),
   },
   post_body: {
     fontFamily: fonts.sans,
     fontWeight: '400',
-    fontSize: '20px',
-    lineHeight: '40px',
+    fontSize: rem(16),
+    lineHeight: '180%',
   },
   profile_sub: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '11px',
-    lineHeight: '20px',
+    fontSize: rem(11),
+    lineHeight: rem(20),
   },
   profile_name: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '13px',
-    lineHeight: '13px',
+    fontSize: rem(13),
+    lineHeight: rem(13),
   },
   profile_title: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '13px',
-    lineHeight: '20px',
+    fontSize: rem(13),
+    lineHeight: rem(20),
   },
   a: {
     fontFamily: fonts.mono,
     fontWeight: '500',
-    fontSize: '14px',
+    fontSize: rem(14),
     lineHeight: 'auto',
   },
 };
