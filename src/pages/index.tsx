@@ -51,7 +51,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
             Expand<span className={clsx(styles.expandIcon, 'material-symbols-rounded')}>add</span>
           </Link>
         </div>
-        <PostsGrid style={{ marginTop: rem(30) }} posts={posts} />
+        <PostsGrid style={{ marginBlock: rem(30) }} posts={posts} />
       </section>
     </Layout>
   );

@@ -13,6 +13,10 @@ globalStyle('body', {
   backgroundColor: theme.colors.background,
 });
 
+globalStyle('#___gatsby, #___gatsby > div', {
+  height: '100%',
+});
+
 globalStyle('img', {
   userSelect: 'none',
 });

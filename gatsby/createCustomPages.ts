@@ -4,7 +4,6 @@ import { GatsbyNode } from 'gatsby';
 import { AboutPageQuery, AboutPageQueryType } from './_queries/about';
 import { BlogPageQuery, BlogPageQueryType } from './_queries/blog';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import dayjs from 'dayjs';
 
 const templates = {
   about: path.resolve(`./src/templates/about-template.tsx`),
@@ -62,7 +61,7 @@ export const createCustomPages: GatsbyNode['createPages'] = async ({
   const createMetadataPages = (items: Set<string>, pathPrefix: string, template: string) => {
     items.forEach(item => {
       createPage({
-        path: `/${pathPrefix}/${item}`,
+        path: `/${pathPrefix}/${item}`.toLowerCase(),
         component: template,
         context: { [pathPrefix]: item },
       });

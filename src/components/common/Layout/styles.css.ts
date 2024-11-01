@@ -7,6 +7,7 @@ import { rem } from '@/utils/pxto';
 export const root = style({
   width: '100%',
   maxWidth: theme.sizes.appWidth,
+  height: '100%',
   marginInline: 'auto',
   paddingLeft: 0,
 

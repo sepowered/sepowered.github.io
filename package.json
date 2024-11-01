@@ -31,13 +31,18 @@
     "gatsby-plugin-mdx": "^5.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-vanilla-extract": "^4.0.2",
+    "gatsby-remark-code-buttons": "^2.0.7",
+    "gatsby-remark-code-titles": "^1.1.0",
     "gatsby-remark-images": "^7.13.2",
+    "gatsby-remark-prismjs": "^7.13.2",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
     "material-symbols": "^0.22.2",
+    "prismjs": "^1.29.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "remark-gfm": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.17.1",

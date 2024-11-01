@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from 'gatsby';
+import remarkGfm from 'remark-gfm';
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -30,7 +31,21 @@ const config: GatsbyConfig = {
               maxWidth: 757,
             },
           },
+          'gatsby-remark-code-buttons',
+          {
+            resolve: 'gatsby-remark-code-titles',
+            options: {},
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              noInlineHighlight: true,
+            },
+          },
         ],
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
       },
     },
     {

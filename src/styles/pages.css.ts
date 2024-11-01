@@ -34,3 +34,9 @@ export const expandIcon = style({
   fontWeight: 600,
   color: theme.colors.gray.mid,
 });
+
+export const centered = style({
+  ...theme.layouts.center,
+  height: '100%',
+  padding: 0,
+});

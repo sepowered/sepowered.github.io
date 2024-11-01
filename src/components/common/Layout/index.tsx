@@ -1,19 +1,23 @@
-import React from 'react';
+import { clsx } from 'clsx';
+import React, { ComponentProps, ReactNode } from 'react';
 
 import Header from './Header';
 import Sidebar from './Sidebar';
 import * as styles from './styles.css';
 
-type LayoutProps = {
-  children: React.ReactNode;
+type LayoutProps = ComponentProps<'div'> & {
+  className?: string;
+  children: ReactNode;
 };
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ className, children, ...props }: LayoutProps) => {
   return (
     <div className={styles.root}>
       <Sidebar />
       <Header />
-      <main className={styles.main}>{children}</main>
+      <main className={clsx(styles.main, className)} {...props}>
+        {children}
+      </main>
     </div>
   );
 };

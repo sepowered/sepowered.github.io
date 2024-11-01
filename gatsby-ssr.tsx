@@ -10,6 +10,7 @@ const colorThemeScript = `
     function setTheme(newTheme) {
       window.__theme = newTheme;
       preferredTheme = newTheme;
+      document.documentElement.setAttribute('data-theme', newTheme);
       document.documentElement.className = newTheme === 'dark' ? '${darkColors}' : '${lightColors}';
       window.__onThemeChange(newTheme);
     }

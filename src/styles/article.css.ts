@@ -54,3 +54,37 @@ globalStyle('article p', {
 globalStyle('article > div[data-content] > :last-child', {
   marginBottom: 0,
 });
+
+globalStyle('article table', {
+  maxWidth: '100%',
+  borderCollapse: 'collapse',
+  marginBottom: rem(28),
+});
+
+globalStyle('article th, article td', {
+  padding: `${rem(4)} ${rem(8)}`,
+  border: `1px solid ${theme.colors.gray.accent}`,
+  textAlign: 'left',
+});
+
+globalStyle('article th', {
+  backgroundColor: 'rgba(0, 0, 0, 0.1)',
+  fontWeight: 600,
+});
+
+globalStyle('article blockquote', {
+  paddingLeft: rem(16),
+  borderLeft: `${rem(4)} solid ${theme.colors.gray.accent}`,
+  margin: `0 0 ${rem(28)}`,
+  color: theme.colors.gray.accent,
+  fontStyle: 'italic',
+});
+
+globalStyle('article ul, article ol', {
+  paddingLeft: rem(24),
+  margin: `0 0 ${rem(28)}`,
+});
+
+globalStyle('article ul li, article ol li', {
+  marginBottom: rem(8),
+});
