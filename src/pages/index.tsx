@@ -6,7 +6,7 @@ import Layout from '@/components/common/Layout';
 import PostsGrid from '@/components/common/PostsGrid';
 import ProfileGrid from '@/components/index/ProfileGrid';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
-import { rem } from '@/utils/pxto';
+import { theme } from '@/styles/theme.css';
 
 import * as styles from '../styles/pages.css';
 
@@ -20,7 +20,7 @@ export const query = graphql`
       nodes {
         id
         frontmatter {
-          date(formatString: "YYYY-MM-DD HH:mm")
+          date
           slug
           title
           coverImage {
@@ -51,7 +51,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
             Expand<span className={clsx(styles.expandIcon, 'material-symbols-rounded')}>add</span>
           </Link>
         </div>
-        <PostsGrid style={{ marginBlock: rem(30) }} posts={posts} />
+        <PostsGrid style={{ ...theme.typographies.profile_sub }} posts={posts} />
       </section>
     </Layout>
   );

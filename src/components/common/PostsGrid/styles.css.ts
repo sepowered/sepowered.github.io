@@ -28,7 +28,7 @@ export const cover = style({
   overflow: 'hidden',
   transition: 'filter 0.3s ease',
 
-  ':hover': { filter: 'brightness(1.2)' },
+  ':hover': { filter: 'brightness(1.3)' },
 });
 
 export const title = style({

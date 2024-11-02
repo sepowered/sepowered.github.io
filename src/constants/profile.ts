@@ -2,8 +2,8 @@ export const profile = {
   cardBackgroundColor: '#FAEE5D',
   modalButtonColor: '#AB8C20',
 
-  profileImageUrl: '/assets/images/profile.webp',
   profileImageShadowColor: 'rgba(232, 114, 24, 0.43)',
+  profileImageFilter: '',
   authorTextColor: '#302C1D',
 
   titleTextColor: '#CAA937',

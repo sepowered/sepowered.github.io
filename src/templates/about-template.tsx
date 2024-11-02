@@ -1,6 +1,7 @@
-import { graphql, HeadFC, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 
+import Footer from '@/components/about/footer';
 import Layout from '@/components/common/Layout';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
@@ -8,7 +9,7 @@ export const query = graphql`
   query AboutTemplate {
     mdx(internal: { contentFilePath: { regex: "/content/pages/about.mdx$/" } }) {
       frontmatter {
-        date(formatString: "YYYY-MM-DD HH:mm")
+        date
       }
     }
   }
@@ -25,9 +26,7 @@ const AboutTemplate = ({ data, children }: AboutTemplateProps) => {
   return (
     <Layout>
       <article>{children}</article>
-      <footer>
-        <p>Last update: {frontmatter?.date}</p>
-      </footer>
+      <Footer date={frontmatter?.date ?? '-'} />
     </Layout>
   );
 };

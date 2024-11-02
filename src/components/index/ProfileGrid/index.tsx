@@ -1,4 +1,6 @@
 import { clsx } from 'clsx';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Card from '@/components/common/Card';
@@ -11,6 +13,21 @@ import * as styles from './styles.css';
 const ProfileGrid = () => {
   const { author } = useSiteMetadata();
 
+  const query = useStaticQuery(graphql`
+    query {
+      file(absolutePath: { regex: "/static/assets/images/profile.*/" }) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  `);
+
+  const { file } = query;
+  const profileImage: IGatsbyImageData | undefined = getImage(
+    file.childImageSharp.gatsbyImageData || null,
+  );
+
   return (
     <section className={styles.root}>
       <div className={styles.container}>
@@ -18,12 +35,18 @@ const ProfileGrid = () => {
         <Card.Root style={{ backgroundColor: profile.cardBackgroundColor }}>
           <Card.Content>
             <div className={styles.cardProfileContainer}>
-              <img
-                className={styles.cardProfileImage}
-                src={profile.profileImageUrl}
-                alt="profile"
-                style={{ boxShadow: `0px 10px 39px ${profile.profileImageShadowColor}` }}
-              />
+              {profileImage && (
+                <GatsbyImage
+                  className={styles.cardProfileImage}
+                  alt="Profile"
+                  image={profileImage}
+                  draggable={false}
+                  style={{
+                    boxShadow: `0px 10px 39px ${profile.profileImageShadowColor}`,
+                    filter: profile.profileImageFilter,
+                  }}
+                />
+              )}
               <p className={styles.cardProfileAuthor} style={{ color: profile.authorTextColor }}>
                 {author}
               </p>

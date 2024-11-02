@@ -33,8 +33,8 @@ export const createCustomPages: GatsbyNode['createPages'] = async ({
   const categories = new Set<string>();
   const tags = new Set<string>();
 
-  blogs.forEach(({ id, frontmatter, fields, internal }) => {
-    const { slug, title, date, category, tag, coverImage } = frontmatter;
+  blogs.forEach(({ frontmatter, fields, internal }) => {
+    const { slug, category, tag, coverImage } = frontmatter;
 
     const cover: IGatsbyImageData | undefined = getImage(
       coverImage?.childImageSharp?.gatsbyImageData || null,
@@ -43,15 +43,7 @@ export const createCustomPages: GatsbyNode['createPages'] = async ({
     createPage({
       path: `/blog/${slug}`,
       component: `${templates.blog}?__contentFilePath=${internal.contentFilePath}`,
-      context: {
-        id,
-        date,
-        title,
-        category,
-        tags: tag ?? [],
-        coverImage: cover,
-        timestamp: fields.timestamp,
-      },
+      context: { ...frontmatter, tags: tag ?? [], coverImage: cover, timestamp: fields.timestamp },
     });
 
     if (category) categories.add(category);

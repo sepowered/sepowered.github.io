@@ -24,7 +24,7 @@ export const query = graphql`
       nodes {
         id
         frontmatter {
-          date(formatString: "YYYY-MM-DD HH:mm")
+          date
           slug
           title
           coverImage {
@@ -46,7 +46,7 @@ export const query = graphql`
       nodes {
         id
         frontmatter {
-          date(formatString: "YYYY-MM-DD HH:mm")
+          date
           slug
           title
           coverImage {
@@ -62,7 +62,9 @@ export const query = graphql`
 
 type BlogPageContext = {
   id: string;
+  slug: string;
   title: string;
+  subtitle: string;
   date: string;
   category: string;
   tags: string[];
@@ -72,7 +74,7 @@ type BlogPageContext = {
 type BlogTemplateProps = PageProps<Queries.RecommendPostsQuery, BlogPageContext>;
 
 const BlogTemplate = ({ data, pageContext, children }: BlogTemplateProps) => {
-  const { title, date, category, coverImage } = pageContext;
+  const { slug, title, subtitle, date, category, coverImage } = pageContext;
   const { previous, next } = data;
 
   let recommendedPosts = [...previous.nodes.slice(0, 2), ...next.nodes.slice(0, 2)];
@@ -91,7 +93,7 @@ const BlogTemplate = ({ data, pageContext, children }: BlogTemplateProps) => {
         <Header coverImage={coverImage} title={title} date={date} category={category} />
         <div data-content={true}>{children}</div>
         <Divider style={{ height: rem(1), marginBlock: rem(55) }} />
-        <Footer />
+        <Footer slug={slug} title={title} subtitle={subtitle} />
       </article>
 
       <Divider style={{ height: rem(1), marginBlock: rem(55) }} />

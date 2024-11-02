@@ -18,6 +18,27 @@ const config: GatsbyConfig = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/content/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/content/posts/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/static/assets/`,
+      },
+    },
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     {
@@ -46,20 +67,6 @@ const config: GatsbyConfig = {
         mdxOptions: {
           remarkPlugins: [remarkGfm],
         },
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/content/pages/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/content/posts/`,
       },
     },
   ],

@@ -6,6 +6,7 @@ export type BlogPageQueryType = {
       id: string;
       frontmatter: {
         title: string;
+        subtitle: string;
         slug: string;
         date: string;
         category?: string;
@@ -33,6 +34,7 @@ export const BlogPageQuery = `
           id
           frontmatter {
             title
+            subtitle
             slug
             date
             category
