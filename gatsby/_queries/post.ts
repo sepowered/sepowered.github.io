@@ -1,6 +1,6 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
-export type BlogPageQueryType = {
+export type PostPageQueryType = {
   allMdx: {
     nodes: {
       id: string;
@@ -27,7 +27,7 @@ export type BlogPageQueryType = {
   };
 };
 
-export const BlogPageQuery = `
+export const PostPageQuery = `
     query GetAllMdxPosts {
       allMdx(filter: { internal: { contentFilePath: { regex: "/^(.*/content/posts/)(.*)$/" } } }) {
         nodes {

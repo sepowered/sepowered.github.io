@@ -7,12 +7,12 @@ import { formatDate } from '@/utils/date';
 
 import * as styles from './styles.css';
 
-type PostsGridProps = ComponentProps<'div'> & {
+type PostGridProps = ComponentProps<'div'> & {
   className?: string;
   posts: Queries.LatestBlogPostsQuery['allMdx']['nodes'];
 };
 
-const PostsGrid = ({ posts, className, ...props }: PostsGridProps) => {
+const PostGrid = ({ posts, className, ...props }: PostGridProps) => {
   return (
     <div className={clsx(styles.grid, className)} {...props}>
       {posts.map(({ id, frontmatter }) => {
@@ -21,7 +21,7 @@ const PostsGrid = ({ posts, className, ...props }: PostsGridProps) => {
         );
 
         return (
-          <Link key={id} className={styles.container} to={`/blog/${frontmatter?.slug}`}>
+          <Link key={id} className={styles.container} to={`/posts/${frontmatter?.slug}`}>
             <div className={styles.cover}>
               {coverImage && (
                 <GatsbyImage
@@ -40,4 +40,4 @@ const PostsGrid = ({ posts, className, ...props }: PostsGridProps) => {
   );
 };
 
-export default PostsGrid;
+export default PostGrid;

@@ -1,7 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 
-import Footer from '@/components/about/footer';
+import Footer from '@/components/about/Footer';
 import Layout from '@/components/common/Layout';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
@@ -25,7 +25,9 @@ const AboutTemplate = ({ data, children }: AboutTemplateProps) => {
 
   return (
     <Layout>
-      <article>{children}</article>
+      <article>
+        <div data-content={true}>{children}</div>
+      </article>
       <Footer date={frontmatter?.date ?? '-'} />
     </Layout>
   );

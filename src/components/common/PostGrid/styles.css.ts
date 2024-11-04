@@ -27,8 +27,6 @@ export const cover = style({
   userSelect: 'none',
   overflow: 'hidden',
   transition: 'filter 0.3s ease',
-
-  ':hover': { filter: 'brightness(1.3)' },
 });
 
 export const title = style({
@@ -59,6 +57,10 @@ export const description = style({
   color: theme.colors.gray.light,
   borderRadius: rem(8),
   transition: 'background-color 0.3s ease',
+});
+
+globalStyle(`${container}:hover ${cover}, ${container}:active ${cover}`, {
+  filter: 'brightness(1.3)',
 });
 
 globalStyle(`${container}:hover ${title}`, {

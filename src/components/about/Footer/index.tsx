@@ -10,7 +10,7 @@ type FooterProps = {
 const Footer = ({ date }: FooterProps) => {
   return (
     <footer className={styles.root}>
-      <p className={styles.date}>Last update: {dayjs(date).format('YYYY-DD-MM HH:mm')}</p>
+      <p className={styles.date}>Last update: {dayjs(date).format('YYYY-MM-DD HH:mm')}</p>
     </footer>
   );
 };

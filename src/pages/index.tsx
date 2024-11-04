@@ -3,10 +3,9 @@ import { graphql, Link, PageProps } from 'gatsby';
 import React from 'react';
 
 import Layout from '@/components/common/Layout';
-import PostsGrid from '@/components/common/PostsGrid';
+import PostGrid from '@/components/common/PostGrid';
 import ProfileGrid from '@/components/index/ProfileGrid';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
-import { theme } from '@/styles/theme.css';
 
 import * as styles from '../styles/pages.css';
 
@@ -23,6 +22,7 @@ export const query = graphql`
           date
           slug
           title
+          subtitle
           coverImage {
             childImageSharp {
               gatsbyImageData
@@ -47,11 +47,11 @@ const IndexPage = ({ data }: IndexPageProps) => {
       <section className={styles.root}>
         <div className={styles.titleContainer}>
           <h3 className={styles.title}>Update</h3>
-          <Link to={'/blog/'} className={styles.expandLink}>
+          <Link to={'/posts/'} className={styles.expandLink}>
             Expand<span className={clsx(styles.expandIcon, 'material-symbols-rounded')}>add</span>
           </Link>
         </div>
-        <PostsGrid style={{ ...theme.typographies.profile_sub }} posts={posts} />
+        <PostGrid posts={posts} />
       </section>
     </Layout>
   );

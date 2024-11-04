@@ -51,6 +51,10 @@ globalStyle('article p', {
   margin: `0 0 ${rem(28)}`,
 });
 
+globalStyle('article > div[data-content] > :first-child', {
+  marginTop: 0,
+});
+
 globalStyle('article > div[data-content] > :last-child', {
   marginBottom: 0,
 });

@@ -33,6 +33,6 @@ export const description = style({
   wordBreak: 'keep-all',
 });
 
-export const descriptionDot = style({
+export const middot = style({
   color: theme.colors.gray.bold,
 });

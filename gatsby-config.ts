@@ -1,13 +1,10 @@
 import type { GatsbyConfig } from 'gatsby';
 import remarkGfm from 'remark-gfm';
 
+import { metadata } from './src/constants/metadata';
+
 const config: GatsbyConfig = {
-  siteMetadata: {
-    title: 'semantic',
-    author: 'Knesssn',
-    description: 'Make your ✨gorgeous blog with semantic',
-    siteUrl: `https://semantic.nylonbricks.com`,
-  },
+  siteMetadata: metadata,
   graphqlTypegen: true,
   plugins: [
     {

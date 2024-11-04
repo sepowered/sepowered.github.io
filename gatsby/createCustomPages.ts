@@ -2,12 +2,14 @@ import path from 'path';
 import { GatsbyNode } from 'gatsby';
 
 import { AboutPageQuery, AboutPageQueryType } from './_queries/about';
-import { BlogPageQuery, BlogPageQueryType } from './_queries/blog';
+import { PostPageQuery, PostPageQueryType } from './_queries/post';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { generatePaginatedPage, generateMetadataPages } from './_utils/page-generator';
 
 const templates = {
   about: path.resolve(`./src/templates/about-template.tsx`),
-  blog: path.resolve(`./src/templates/blog-template.tsx`),
+  post: path.resolve(`./src/templates/post-template.tsx`),
+  posts: path.resolve(`./src/templates/posts-template.tsx`),
   category: path.resolve(`./src/templates/category-template.tsx`),
   categories: path.resolve(`./src/templates/categories-template.tsx`),
   tag: path.resolve(`./src/templates/tag-template.tsx`),
@@ -19,30 +21,29 @@ export const createCustomPages: GatsbyNode['createPages'] = async ({
   actions,
   reporter,
 }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
-  // Blog pages
-  const pageQuery = await graphql<BlogPageQueryType>(BlogPageQuery);
+  // Post pages
+  const postQueryResult = await graphql<PostPageQueryType>(PostPageQuery);
 
-  if (pageQuery.errors) {
-    reporter.panicOnBuild('🚨 MDX query error at BlogPageQuery', pageQuery.errors);
+  if (postQueryResult.errors) {
+    reporter.panicOnBuild('🚨 MDX query error at PostPageQuery', postQueryResult.errors);
     return;
   }
 
-  const blogs = pageQuery.data?.allMdx.nodes || [];
+  const posts = postQueryResult.data?.allMdx.nodes || [];
   const categories = new Set<string>();
   const tags = new Set<string>();
 
-  blogs.forEach(({ frontmatter, fields, internal }) => {
+  posts.forEach(({ frontmatter, fields, internal }) => {
     const { slug, category, tag, coverImage } = frontmatter;
-
     const cover: IGatsbyImageData | undefined = getImage(
       coverImage?.childImageSharp?.gatsbyImageData || null,
     );
 
     createPage({
-      path: `/blog/${slug}`,
-      component: `${templates.blog}?__contentFilePath=${internal.contentFilePath}`,
+      path: `/posts/${slug}`,
+      component: `${templates.post}?__contentFilePath=${internal.contentFilePath}`,
       context: { ...frontmatter, tags: tag ?? [], coverImage: cover, timestamp: fields.timestamp },
     });
 
@@ -50,18 +51,9 @@ export const createCustomPages: GatsbyNode['createPages'] = async ({
     tag?.forEach(t => tags.add(t));
   });
 
-  const createMetadataPages = (items: Set<string>, pathPrefix: string, template: string) => {
-    items.forEach(item => {
-      createPage({
-        path: `/${pathPrefix}/${item}`.toLowerCase(),
-        component: template,
-        context: { [pathPrefix]: item },
-      });
-    });
-  };
-
-  createMetadataPages(categories, 'category', templates.category);
-  createMetadataPages(tags, 'tag', templates.tag);
+  generatePaginatedPage(posts.length, 'posts', templates.posts, 'Posts', createPage);
+  generateMetadataPages(categories, 'category', templates.category, createPage);
+  generateMetadataPages(tags, 'tag', templates.tag, createPage);
 
   createPage({
     path: `/category`,
@@ -76,15 +68,14 @@ export const createCustomPages: GatsbyNode['createPages'] = async ({
   });
 
   // About page
-  const aboutQuery = await graphql<AboutPageQueryType>(AboutPageQuery);
-
-  if (aboutQuery.errors) {
-    reporter.panicOnBuild('🚨 MDX query error at AboutPageQuery', aboutQuery.errors);
+  const aboutQueryResult = await graphql<AboutPageQueryType>(AboutPageQuery);
+  if (aboutQueryResult.errors) {
+    reporter.panicOnBuild('🚨 MDX query error at AboutPageQuery', aboutQueryResult.errors);
     return;
   }
 
-  if (aboutQuery.data?.mdx) {
-    const { id, internal } = aboutQuery.data.mdx;
+  if (aboutQueryResult.data?.mdx) {
+    const { id, internal } = aboutQueryResult.data.mdx;
 
     createPage({
       path: `/about`,
@@ -92,4 +83,7 @@ export const createCustomPages: GatsbyNode['createPages'] = async ({
       context: { id },
     });
   }
+
+  // Redirects
+  createRedirect({ fromPath: `/post/p/1/`, toPath: `/post/` });
 };

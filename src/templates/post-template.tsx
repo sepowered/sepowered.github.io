@@ -2,12 +2,12 @@ import { graphql, PageProps } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 
-import Footer from '@/components/blog/Footer';
-import Header from '@/components/blog/Header';
-import Recommend from '@/components/blog/Recommend';
 import BackButton from '@/components/common/BackButton';
 import Divider from '@/components/common/Divider';
 import Layout from '@/components/common/Layout';
+import Footer from '@/components/post/Footer';
+import Header from '@/components/post/Header';
+import Recommend from '@/components/post/Recommend';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 import { rem } from '@/utils/pxto';
 
@@ -27,6 +27,7 @@ export const query = graphql`
           date
           slug
           title
+          subtitle
           coverImage {
             childImageSharp {
               gatsbyImageData
@@ -49,6 +50,7 @@ export const query = graphql`
           date
           slug
           title
+          subtitle
           coverImage {
             childImageSharp {
               gatsbyImageData
@@ -60,7 +62,7 @@ export const query = graphql`
   }
 `;
 
-type BlogPageContext = {
+type PostPageContext = {
   id: string;
   slug: string;
   title: string;
@@ -71,18 +73,18 @@ type BlogPageContext = {
   coverImage: IGatsbyImageData | undefined;
 };
 
-type BlogTemplateProps = PageProps<Queries.RecommendPostsQuery, BlogPageContext>;
+type PostTemplateProps = PageProps<Queries.RecommendPostsQuery, PostPageContext>;
 
-const BlogTemplate = ({ data, pageContext, children }: BlogTemplateProps) => {
+const PostTemplate = ({ data, pageContext, children }: PostTemplateProps) => {
   const { slug, title, subtitle, date, category, coverImage } = pageContext;
   const { previous, next } = data;
 
-  let recommendedPosts = [...previous.nodes.slice(0, 2), ...next.nodes.slice(0, 2)];
+  let recommendedPosts = [...next.nodes.slice(0, 2), ...previous.nodes.slice(0, 2)];
   if (recommendedPosts.length < 4) {
-    if (previous.nodes.length < 2)
-      recommendedPosts = [...previous.nodes, ...next.nodes.slice(0, 4 - previous.nodes.length)];
-    else if (next.nodes.length < 2)
-      recommendedPosts = [...previous.nodes.slice(0, 4 - next.nodes.length), ...next.nodes];
+    if (next.nodes.length < 2)
+      recommendedPosts = [...next.nodes, ...previous.nodes.slice(0, 4 - next.nodes.length)];
+    else if (previous.nodes.length < 2)
+      recommendedPosts = [...next.nodes.slice(0, 4 - previous.nodes.length), ...previous.nodes];
   }
 
   return (
@@ -102,9 +104,9 @@ const BlogTemplate = ({ data, pageContext, children }: BlogTemplateProps) => {
   );
 };
 
-export default BlogTemplate;
+export default PostTemplate;
 
-export const Head = ({ pageContext }: BlogTemplateProps) => {
+export const Head = ({ pageContext }: PostTemplateProps) => {
   const { title } = pageContext;
   const { title: siteName } = useSiteMetadata();
   return <title>{`${title} – ${siteName}`}</title>;

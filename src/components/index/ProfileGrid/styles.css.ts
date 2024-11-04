@@ -81,6 +81,7 @@ export const dialogOverlay = style({
   backgroundColor: 'rgba(0, 0, 0, 0.2)',
   backdropFilter: `blur(${rem(11)})`,
   zIndex: theme.zIndices.overlay,
+  transform: 'none',
 });
 
 export const dialogContainer = style({

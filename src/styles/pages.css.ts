@@ -6,6 +6,8 @@ import { rem } from '@/utils/pxto';
 export const root = style({
   ...theme.layouts.column,
   paddingTop: rem(70),
+  paddingBottom: rem(65),
+  gap: rem(30),
 });
 
 export const titleContainer = style({

@@ -15,7 +15,12 @@ const Layout = ({ className, children, ...props }: LayoutProps) => {
     <div className={styles.root}>
       <Sidebar />
       <Header />
-      <main className={clsx(styles.main, className)} {...props}>
+      <main
+        className={clsx(styles.main, className)}
+        {...props}
+        data-animate={true}
+        data-animate-speed="slow"
+      >
         {children}
       </main>
     </div>

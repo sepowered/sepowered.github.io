@@ -25,7 +25,7 @@ const Header = ({ coverImage, title, date, category }: HeaderProps) => {
         {formatDate(date)}
         {category && (
           <Fragment>
-            <span className={styles.descriptionDot}>&nbsp;&middot;&nbsp;</span>
+            <span className={styles.middot}>&nbsp;&middot;&nbsp;</span>
             {category}
           </Fragment>
         )}
