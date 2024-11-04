@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 import { theme } from '@/styles/theme.css';
 import { rem } from '@/utils/pxto';
@@ -35,4 +35,13 @@ export const description = style({
 
 export const middot = style({
   color: theme.colors.gray.bold,
+});
+
+globalStyle(`${description} a`, {
+  opacity: 1,
+  transition: 'opacity 0.2s',
+});
+
+globalStyle(`${description} a:hover`, {
+  opacity: 0.7,
 });

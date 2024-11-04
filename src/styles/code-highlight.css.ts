@@ -129,7 +129,7 @@ globalStyle(`.line-highlight.line-highlight`, {
     'linear-gradient(to right, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0))',
 });
 
-// 다크 모드 스타일
+// dark mode
 globalStyle(`html[data-theme="dark"] code[class*="language-"]`, {
   color: '#E8E8E8',
 });

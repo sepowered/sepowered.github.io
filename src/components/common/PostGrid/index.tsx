@@ -9,7 +9,7 @@ import * as styles from './styles.css';
 
 type PostGridProps = ComponentProps<'div'> & {
   className?: string;
-  posts: Queries.LatestBlogPostsQuery['allMdx']['nodes'];
+  posts: Queries.LatestPostsQuery['allMdx']['nodes'];
 };
 
 const PostGrid = ({ posts, className, ...props }: PostGridProps) => {

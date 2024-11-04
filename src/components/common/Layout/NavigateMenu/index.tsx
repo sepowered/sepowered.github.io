@@ -9,6 +9,7 @@ import * as styles from './styles.css';
 
 const NavigateMenu = () => {
   const { pathname } = useLocation();
+  const path: string = pathname.split('/')[1];
 
   return (
     <nav>
@@ -16,7 +17,10 @@ const NavigateMenu = () => {
         {menuItems.map(menu => (
           <li
             key={menu.link}
-            className={clsx(styles.navItem, pathname === menu.link && styles.navItemActive)}
+            className={clsx(
+              styles.navItem,
+              path === menu.link.replace(/\//g, '') && styles.navItemActive,
+            )}
           >
             <Link to={menu.link} className={styles.navLink}>
               {menu.title}

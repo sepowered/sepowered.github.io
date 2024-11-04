@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
@@ -7,7 +6,6 @@ import Card from '@/components/common/Card';
 import { playlistEmbedUrl, profile } from '@/constants/profile';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
-import ProfileDialog from './ProfileDialog';
 import * as styles from './styles.css';
 
 const ProfileGrid = () => {
@@ -67,16 +65,16 @@ const ProfileGrid = () => {
               ))}
             </div>
           </Card.Content>
-          <ProfileDialog>
-            <button className={styles.profileModalButton} type="button">
-              <span
-                className={clsx('material-symbols-rounded', styles.profileModalButtonIcon)}
-                style={{ color: profile.modalButtonColor }}
-              >
-                add
-              </span>
-            </button>
-          </ProfileDialog>
+          {/*<ProfileDialog>*/}
+          {/*  <button className={styles.profileModalButton} type="button">*/}
+          {/*    <span*/}
+          {/*      className={clsx('material-symbols-rounded', styles.profileModalButtonIcon)}*/}
+          {/*      style={{ color: profile.modalButtonColor }}*/}
+          {/*    >*/}
+          {/*      add*/}
+          {/*    </span>*/}
+          {/*  </button>*/}
+          {/*</ProfileDialog>*/}
         </Card.Root>
       </div>
 

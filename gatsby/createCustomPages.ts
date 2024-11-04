@@ -32,8 +32,8 @@ export const createCustomPages: GatsbyNode['createPages'] = async ({
   }
 
   const posts = postQueryResult.data?.allMdx.nodes || [];
-  const categories = new Set<string>();
-  const tags = new Set<string>();
+  const categories = new Map<string, number>();
+  const tags = new Map<string, number>();
 
   posts.forEach(({ frontmatter, fields, internal }) => {
     const { slug, category, tag, coverImage } = frontmatter;
@@ -47,22 +47,22 @@ export const createCustomPages: GatsbyNode['createPages'] = async ({
       context: { ...frontmatter, tags: tag ?? [], coverImage: cover, timestamp: fields.timestamp },
     });
 
-    if (category) categories.add(category);
-    tag?.forEach(t => tags.add(t));
+    if (category) categories.set(category, (categories.get(category) || 0) + 1);
+    tag?.forEach(t => tags.set(t, (tags.get(t) || 0) + 1));
   });
 
   generatePaginatedPage(posts.length, 'posts', templates.posts, 'Posts', createPage);
-  generateMetadataPages(categories, 'category', templates.category, createPage);
-  generateMetadataPages(tags, 'tag', templates.tag, createPage);
+  generateMetadataPages(categories, 'categories', templates.category, createPage);
+  generateMetadataPages(tags, 'tags', templates.tag, createPage);
 
   createPage({
-    path: `/category`,
+    path: `/categories`,
     component: templates.categories,
     context: { categories: Array.from(categories) },
   });
 
   createPage({
-    path: `/tag`,
+    path: `/tags`,
     component: templates.tags,
     context: { tags: Array.from(tags) },
   });

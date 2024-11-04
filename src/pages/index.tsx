@@ -10,7 +10,7 @@ import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 import * as styles from '../styles/pages.css';
 
 export const query = graphql`
-  query LatestBlogPosts {
+  query LatestPosts {
     allMdx(
       limit: 4
       sort: { frontmatter: { date: DESC } }
@@ -34,7 +34,7 @@ export const query = graphql`
   }
 `;
 
-type IndexPageProps = PageProps<Queries.LatestBlogPostsQuery>;
+type IndexPageProps = PageProps<Queries.LatestPostsQuery>;
 
 const IndexPage = ({ data }: IndexPageProps) => {
   const { allMdx } = data;

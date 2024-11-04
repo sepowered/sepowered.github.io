@@ -13,8 +13,12 @@ globalStyle('[data-animate] > *', {
     '--delay': '50ms',
     '--start': '0ms',
   },
-  animation: `${fadeInSlide} 500ms both`,
-  animationDelay: 'calc(var(--level) * var(--delay)  + var(--start))',
+  '@media': {
+    '(prefers-reduced-motion: no-preference)': {
+      animation: `${fadeInSlide} 500ms both`,
+      animationDelay: 'calc(var(--level) * var(--delay) + var(--start))',
+    },
+  },
 });
 
 globalStyle('[data-animate-speed="slow"] > *', {

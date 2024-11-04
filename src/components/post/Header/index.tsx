@@ -1,7 +1,9 @@
+import { Link } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { Fragment } from 'react';
 
 import { formatDate } from '@/utils/date';
+import { slugify } from '@/utils/slugify';
 
 import * as styles from './styles.css';
 
@@ -26,7 +28,7 @@ const Header = ({ coverImage, title, date, category }: HeaderProps) => {
         {category && (
           <Fragment>
             <span className={styles.middot}>&nbsp;&middot;&nbsp;</span>
-            {category}
+            <Link to={slugify(`/categories/${category}`)}>{category}</Link>
           </Fragment>
         )}
       </p>

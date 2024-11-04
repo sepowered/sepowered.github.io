@@ -8,15 +8,6 @@ import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 import { theme } from '@/styles/theme.css';
 import { rem } from '@/utils/pxto';
 
-type PostsTemplateContext = {
-  title: string;
-  type: string;
-  limit: number;
-  skip: number;
-  maxPages: number;
-  currentPage: number;
-};
-
 export const query = graphql`
   query PostList($limit: Int!, $skip: Int!) {
     allMdx(
@@ -48,6 +39,15 @@ export const query = graphql`
     }
   }
 `;
+
+type PostsTemplateContext = {
+  title: string;
+  type: string;
+  limit: number;
+  skip: number;
+  maxPages: number;
+  currentPage: number;
+};
 
 type PostsTemplateProps = PageProps<Queries.PostListQuery, PostsTemplateContext>;
 
