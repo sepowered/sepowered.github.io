@@ -5,17 +5,17 @@ import Layout from '@/components/common/Layout';
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 import * as styles from '@/styles/pages.css';
 
-const NotFoundPage = () => {
+const ServerErrorPage = () => {
   return (
     <Layout className={styles.centered}>
-      <Error title="Not Found" />
+      <Error title="Server Error" />
     </Layout>
   );
 };
 
-export default NotFoundPage;
+export default ServerErrorPage;
 
 export const Head = () => {
   const { title } = useSiteMetadata();
-  return <title>{`Not found – ${title}`}</title>;
+  return <title>{`Server Error – ${title}`}</title>;
 };

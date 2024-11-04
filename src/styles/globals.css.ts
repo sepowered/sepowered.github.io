@@ -20,3 +20,11 @@ globalStyle('#___gatsby, #___gatsby > div', {
 globalStyle('img', {
   userSelect: 'none',
 });
+
+globalStyle('[data-color-scheme="dark"]', {
+  colorScheme: 'dark',
+});
+
+globalStyle('[data-color-scheme="light"]', {
+  colorScheme: 'light',
+});

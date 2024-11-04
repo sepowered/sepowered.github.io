@@ -123,6 +123,12 @@ const layouts = {
     display: 'flex',
     flexDirection: 'column',
   },
+  columnCenter: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   columnCenterX: {
     display: 'flex',
     flexDirection: 'column',
@@ -150,10 +156,17 @@ export const colors = createThemeContract({
     click: '--semantic-colors-gray-click',
     hover: '--semantic-colors-gray-hover',
   },
+
   white: '--semantic-colors-white',
+
   black: '--semantic-colors-black',
   border: '--semantic-colors-border',
   background: '--semantic-colors-background',
+  background02: '--semantic-colors-background02',
+  background03: '--semantic-colors-background03',
+  background04: '--semantic-colors-background04',
+  background06: '--semantic-colors-background06',
+  background08: '--semantic-colors-background08',
 
   toggle: '--semantic-colors-toggle',
   license: '--semantic-colors-license',
@@ -172,10 +185,17 @@ export const lightColors = createTheme(colors, {
     click: '#6B6B87',
     hover: '#F9F9FC',
   },
+
   white: '#FFFFFF',
   black: '#000000',
   border: '#F4F4F8',
   background: '#FCFCFD',
+  background02: 'rgba(0, 0, 0, 0.02)',
+  background03: 'rgba(0, 0, 0, 0.03)',
+  background04: 'rgba(0, 0, 0, 0.04)',
+  background06: 'rgba(0, 0, 0, 0.06)',
+  background08: 'rgba(0, 0, 0, 0.08)',
+
   toggle: '#FFFFFF',
   license: '#B5B5C3',
 
@@ -193,10 +213,17 @@ export const darkColors = createTheme(colors, {
     click: '#1B1B1B',
     hover: '#141414',
   },
+
   white: '#FFFFFF',
   black: '#000000',
   border: '#1B1B1B',
   background: '#0F0F0F',
+  background02: 'rgba(255, 255, 255, 0.02)',
+  background03: 'rgba(255, 255, 255, 0.03)',
+  background04: 'rgba(255, 255, 255, 0.04)',
+  background06: 'rgba(255, 255, 255, 0.06)',
+  background08: 'rgba(255, 255, 255, 0.08)',
+
   toggle: '#000000',
   license: '#B2B2B2',
 

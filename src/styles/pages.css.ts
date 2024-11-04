@@ -41,4 +41,5 @@ export const centered = style({
   ...theme.layouts.center,
   height: '100%',
   padding: 0,
+  marginTop: rem(-67.5),
 });
