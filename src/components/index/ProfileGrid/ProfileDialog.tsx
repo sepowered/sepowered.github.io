@@ -15,6 +15,8 @@ type ProfileDialogProps = {
 const ProfileDialog = ({ children }: ProfileDialogProps) => {
   const [open, setOpen] = useState(false);
 
+  if (typeof window === 'undefined') return null;
+
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
