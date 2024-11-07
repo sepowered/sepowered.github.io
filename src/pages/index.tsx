@@ -61,5 +61,5 @@ export default IndexPage;
 
 export const Head = () => {
   const { title } = useSiteMetadata();
-  return <title>{title}</title>;
+  return <title key="title">{title}</title>;
 };

@@ -17,5 +17,5 @@ export default NotFoundPage;
 
 export const Head = () => {
   const { title } = useSiteMetadata();
-  return <title>{`Not found – ${title}`}</title>;
+  return <title key="title-400">{`Not found – ${title}`}</title>;
 };
