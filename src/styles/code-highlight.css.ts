@@ -12,7 +12,7 @@ globalStyle(`code[class*="language-"], pre[class*="language-"]`, {
   wordSpacing: 'normal',
   wordBreak: 'normal',
   fontSize: rem(14),
-  lineHeight: '150%',
+  lineHeight: '160%',
   tabSize: 4,
   hyphens: 'none',
 });
