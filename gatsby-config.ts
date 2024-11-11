@@ -43,16 +43,12 @@ const config: GatsbyConfig = {
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
+          'gatsby-remark-codeblock',
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 757,
             },
-          },
-          'gatsby-remark-code-buttons',
-          {
-            resolve: 'gatsby-remark-code-titles',
-            options: {},
           },
           {
             resolve: 'gatsby-remark-prismjs',

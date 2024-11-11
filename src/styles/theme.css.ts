@@ -165,6 +165,7 @@ export const colors = createThemeContract({
   background02: '--semantic-colors-background02',
   background03: '--semantic-colors-background03',
   background04: '--semantic-colors-background04',
+  background05: '--semantic-colors-background05',
   background06: '--semantic-colors-background06',
   background08: '--semantic-colors-background08',
 
@@ -206,6 +207,7 @@ export const lightColors = createTheme(colors, {
   background02: 'rgba(0, 0, 0, 0.02)',
   background03: 'rgba(0, 0, 0, 0.03)',
   background04: 'rgba(0, 0, 0, 0.04)',
+  background05: 'rgba(0, 0, 0, 0.05)',
   background06: 'rgba(0, 0, 0, 0.06)',
   background08: 'rgba(0, 0, 0, 0.08)',
 
@@ -247,6 +249,7 @@ export const darkColors = createTheme(colors, {
   background02: 'rgba(255, 255, 255, 0.02)',
   background03: 'rgba(255, 255, 255, 0.03)',
   background04: 'rgba(255, 255, 255, 0.04)',
+  background05: 'rgba(255, 255, 255, 0.05)',
   background06: 'rgba(255, 255, 255, 0.06)',
   background08: 'rgba(255, 255, 255, 0.08)',
 

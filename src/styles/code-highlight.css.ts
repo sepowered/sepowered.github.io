@@ -3,6 +3,7 @@ import { globalStyle } from '@vanilla-extract/css';
 import { theme } from '@/styles/theme.css';
 import { rem } from '@/utils/pxto';
 
+// light mode
 globalStyle(`code[class*="language-"], pre[class*="language-"]`, {
   color: '#393A34',
   fontFamily: theme.fonts.mono,
@@ -315,4 +316,50 @@ globalStyle(`html[data-theme="dark"] .line-numbers .line-numbers-rows > span:bef
 globalStyle(`html[data-theme="dark"] .line-highlight.line-highlight`, {
   background: 'rgba(255, 215, 0, 0.1)',
   backgroundImage: 'linear-gradient(to right, rgba(255, 215, 0, 0.1) 70%, rgba(255, 215, 0, 0))',
+});
+
+// code block
+globalStyle(`.codeblock-container`, {
+  position: 'relative',
+});
+
+globalStyle(`.codeblock-container .codeblock-title`, {
+  position: 'absolute',
+  top: rem(-12),
+  left: rem(12),
+  padding: `${rem(6)} ${rem(8)}`,
+  color: theme.colors.gray.accent,
+  fontSize: rem(12),
+  fontFamily: theme.fonts.mono,
+  lineHeight: 1,
+  border: `${rem(1)} solid ${theme.colors.border}`,
+  borderRadius: rem(6),
+  backgroundColor: theme.colors.white,
+});
+
+globalStyle(`html[data-theme="dark"] .codeblock-container .codeblock-title`, {
+  backgroundColor: '#1E1E1E',
+});
+
+globalStyle(`.codeblock-container .codeblock-copy-button`, {
+  position: 'absolute',
+  top: rem(6),
+  right: rem(6),
+  padding: rem(6),
+  lineHeight: 1,
+  color: theme.colors.gray.accent,
+  fontFamily: theme.fonts.mono,
+  fontSize: rem(11),
+  cursor: 'pointer',
+  borderRadius: rem(6),
+  backgroundColor: theme.colors.background,
+  transition: 'background-color 0.2s',
+});
+
+globalStyle(`.codeblock-container .codeblock-copy-button:hover`, {
+  backgroundColor: theme.colors.background04,
+});
+
+globalStyle(`html[data-theme="dark"] .codeblock-container .codeblock-copy-button`, {
+  backgroundColor: theme.colors.background02,
 });
