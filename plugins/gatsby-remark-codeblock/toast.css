@@ -42,3 +42,7 @@
     animation: fade-in-and-out 2s both;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+html[data-theme='dark'] .codeblock-copy-toast-message {
+    background-color: #1C262F;
+}

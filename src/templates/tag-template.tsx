@@ -4,7 +4,7 @@ import React from 'react';
 import Layout from '@/components/common/Layout';
 import Pagination from '@/components/common/Pagination';
 import PostList from '@/components/common/PostList';
-import { useSiteMetadata } from '@/hooks/useSiteMetadata';
+import SEO from '@/components/common/SEO';
 import { theme } from '@/styles/theme.css';
 import { rem } from '@/utils/pxto';
 import { slugify } from '@/utils/slugify';
@@ -12,22 +12,22 @@ import { slugify } from '@/utils/slugify';
 export const query = graphql`
   query TagPosts($tags: [String!], $limit: Int!, $skip: Int!) {
     allMdx(
-      filter: { frontmatter: { tag: { in: $tags } } }
+      filter: { frontmatter: { tag: { in: $tags }, draft: { nin: true } } }
       limit: $limit
-      sort: { frontmatter: { date: DESC } }
+      sort: { frontmatter: { publishDate: DESC } }
       skip: $skip
     ) {
       nodes {
         id
         frontmatter {
-          date
+          publishDate
           slug
           title
           subtitle
           category
           coverImage {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED)
+              gatsbyImageData
             }
           }
         }
@@ -67,11 +67,5 @@ export default TagTemplate;
 
 export const Head = ({ pageContext }: TagTemplateProps) => {
   const { tags, currentPage } = pageContext;
-  const { title: siteName } = useSiteMetadata();
-  if (currentPage === 1) return <title>{`${tags} – ${siteName}`}</title>;
-  return (
-    <title
-      key={`title-tags-${tags}-p${currentPage}`}
-    >{`${tags} (${currentPage} Page) – ${siteName}`}</title>
-  );
+  return <SEO title={`${tags} (${currentPage} Page)`} />;
 };

@@ -4,8 +4,8 @@ import React from 'react';
 
 import Layout from '@/components/common/Layout';
 import PostGrid from '@/components/common/PostGrid';
+import SEO from '@/components/common/SEO';
 import ProfileGrid from '@/components/index/ProfileGrid';
-import { useSiteMetadata } from '@/hooks/useSiteMetadata';
 
 import * as styles from '../styles/pages.css';
 
@@ -13,19 +13,22 @@ export const query = graphql`
   query LatestPosts {
     allMdx(
       limit: 4
-      sort: { frontmatter: { date: DESC } }
-      filter: { internal: { contentFilePath: { regex: "/^(.*/content/posts/)(.*)$/" } } }
+      sort: { frontmatter: { publishDate: DESC } }
+      filter: {
+        internal: { contentFilePath: { regex: "/^(.*/content/posts/)(.*)$/" } }
+        frontmatter: { draft: { nin: true } }
+      }
     ) {
       nodes {
         id
         frontmatter {
-          date
+          publishDate
           slug
           title
           subtitle
           coverImage {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(placeholder: BLURRED)
             }
           }
         }
@@ -59,7 +62,4 @@ const IndexPage = ({ data }: IndexPageProps) => {
 
 export default IndexPage;
 
-export const Head = () => {
-  const { title } = useSiteMetadata();
-  return <title key="title">{title}</title>;
-};
+export const Head = () => <SEO />;

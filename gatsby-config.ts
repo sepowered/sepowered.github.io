@@ -5,7 +5,9 @@ import { metadata } from './src/constants/metadata';
 
 const config: GatsbyConfig = {
   siteMetadata: metadata,
-  graphqlTypegen: true,
+  graphqlTypegen: {
+    typesOutputPath: `./src/__generated__/gatsby-types.d.ts`,
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-vanilla-extract`,
