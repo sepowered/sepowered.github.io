@@ -75,6 +75,7 @@ export const tag = style({
   paddingInline: rem(6),
   color: theme.color.gray.mid,
   fontSize: theme.fontSize.xs,
+  fontFamily: theme.fontFamily.mono,
   fontWeight: 500,
   border: `${rem(1)} solid ${theme.color.background03}`,
   borderRadius: rem(8),
