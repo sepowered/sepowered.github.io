@@ -1,106 +1,116 @@
 import { createThemeContract, createTheme, createGlobalTheme } from '@vanilla-extract/css';
 
-import { rem } from '@/utils/pxto';
+import { rem } from './pxto';
 
-const sizes = {
+const size = {
   appWidth: rem(758),
   appInlineSpace: rem(24),
   sidebarWidth: rem(210),
 };
 
-const fonts = {
-  mono: `"Roboto Mono", "Pretendard Variable", "Courier New", Courier, monospace`,
-  sans: `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif`,
+const fontFamily = {
+  mono: `"Roboto Mono", pretendard, "Courier New", Courier, monospace`,
+  sans: `pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif`,
 };
 
-const typographies = {
+const fontSize = {
+  xxxl: rem(28),
+  xxl: rem(24),
+  xl: rem(20),
+  lg: rem(18),
+  md: rem(16),
+  base: rem(15),
+  sm: rem(14),
+  xs: rem(12),
+  xxs: rem(10),
+  xxxs: rem(8),
+
+  code: rem(12.5),
+};
+
+const typography = {
   h7: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
     fontSize: rem(10),
     lineHeight: rem(18),
   },
   h6: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
     fontSize: rem(11),
     lineHeight: rem(18),
   },
   h5: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
     fontSize: rem(12),
     lineHeight: 'auto',
   },
   h4: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
     fontSize: rem(13),
     lineHeight: 'auto',
   },
   h3: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
     fontSize: rem(15),
     lineHeight: rem(15),
   },
   post_subtitle: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
-    fontSize: rem(15),
-    lineHeight: rem(26),
+    fontSize: fontSize.base,
   },
   post_title: {
-    fontFamily: fonts.mono,
-    fontWeight: '500',
-    fontSize: rem(24),
-    lineHeight: rem(40),
+    fontFamily: fontFamily.mono,
+    fontWeight: '600',
+    fontSize: fontSize.xxl,
   },
   post_description: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
-    fontSize: rem(13),
-    lineHeight: rem(26),
+    fontSize: fontSize.code,
   },
   post_image_description: {
-    fontFamily: fonts.sans,
+    fontFamily: fontFamily.sans,
     fontWeight: '400',
-    fontSize: rem(15),
-    lineHeight: rem(13),
+    fontSize: fontSize.base,
   },
   post_body: {
-    fontFamily: fonts.sans,
+    fontFamily: fontFamily.sans,
     fontWeight: '400',
-    fontSize: rem(16),
+    fontSize: fontSize.base,
     lineHeight: '180%',
   },
   profile_sub: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
     fontSize: rem(11),
-    lineHeight: rem(20),
   },
   profile_name: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
     fontSize: rem(13),
     lineHeight: rem(13),
   },
   profile_title: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
     fontSize: rem(13),
     lineHeight: rem(20),
   },
   a: {
-    fontFamily: fonts.mono,
+    fontFamily: fontFamily.mono,
     fontWeight: '500',
     fontSize: rem(14),
     lineHeight: 'auto',
   },
 };
 
-const layouts = {
+const layout = {
   center: {
     display: 'flex',
     justifyContent: 'center',
@@ -141,13 +151,13 @@ const layouts = {
   },
 };
 
-const zIndices = {
+const zIndex = {
   overlay: '100',
   headerContainer: '150',
   modal: '200',
 };
 
-export const colors = createThemeContract({
+export const modeColor = createThemeContract({
   gray: {
     accent: '--semantic-colors-gray-accent',
     bold: '--semantic-colors-gray-bold',
@@ -157,9 +167,6 @@ export const colors = createThemeContract({
     hover: '--semantic-colors-gray-hover',
   },
 
-  white: '--semantic-colors-white',
-
-  black: '--semantic-colors-black',
   border: '--semantic-colors-border',
   background: '--semantic-colors-background',
   background02: '--semantic-colors-background02',
@@ -175,22 +182,16 @@ export const colors = createThemeContract({
   gradient: {
     sidebar_divider: '--semantic-gradient-sidebar-divider',
   },
-
-  mdx: {
-    note: '--semantic-mdx-note',
-    noteBackground: '--semantic-mdx-note-background',
-    tip: '--semantic-mdx-tip',
-    tipBackground: '--semantic-mdx-tip-background',
-    important: '--semantic-mdx-important',
-    importantBackground: '--semantic-mdx-important-background',
-    warning: '--semantic-mdx-warning',
-    warningBackground: '--semantic-mdx-warning-background',
-    caution: '--semantic-mdx-caution',
-    cautionBackground: '--semantic-mdx-caution-background',
-  },
 });
 
-export const lightColors = createTheme(colors, {
+export const color = {
+  white: '#FFFFFF',
+  black: '#000000',
+
+  ...modeColor,
+};
+
+export const lightMode = createTheme(modeColor, {
   gray: {
     accent: '#1D1D30',
     bold: '#393960',
@@ -200,8 +201,6 @@ export const lightColors = createTheme(colors, {
     hover: '#F9F9FC',
   },
 
-  white: '#FFFFFF',
-  black: '#000000',
   border: '#F4F4F8',
   background: '#FCFCFD',
   background02: 'rgba(0, 0, 0, 0.02)',
@@ -211,30 +210,17 @@ export const lightColors = createTheme(colors, {
   background06: 'rgba(0, 0, 0, 0.06)',
   background08: 'rgba(0, 0, 0, 0.08)',
 
-  toggle: '#FFFFFF',
+  toggle: color.white,
   license: '#B5B5C3',
 
   gradient: {
     sidebar_divider: 'radial-gradient(circle, #D9DBE7 0%, rgba(217, 219, 231, 0) 100%)',
   },
-
-  mdx: {
-    note: '#2e67d3',
-    noteBackground: '#f7fbff',
-    tip: '#2e67d3',
-    tipBackground: '#f7fbff',
-    important: '#7b52d7',
-    importantBackground: '#fbf7ff',
-    warning: '#936921',
-    warningBackground: '#fffdf7',
-    caution: '#be3536',
-    cautionBackground: '#fffafa',
-  },
 });
 
-export const darkColors = createTheme(colors, {
+export const darkMode = createTheme(modeColor, {
   gray: {
-    accent: '#FFFFFF',
+    accent: color.white,
     bold: '#DDDDDD',
     mid: '#B2B2B2',
     light: '#888888',
@@ -242,8 +228,6 @@ export const darkColors = createTheme(colors, {
     hover: '#141414',
   },
 
-  white: '#FFFFFF',
-  black: '#000000',
   border: '#1B1B1B',
   background: '#0F0F0F',
   background02: 'rgba(255, 255, 255, 0.02)',
@@ -253,32 +237,20 @@ export const darkColors = createTheme(colors, {
   background06: 'rgba(255, 255, 255, 0.06)',
   background08: 'rgba(255, 255, 255, 0.08)',
 
-  toggle: '#000000',
+  toggle: 'rgb(1, 1, 1)',
   license: '#B2B2B2',
 
   gradient: {
     sidebar_divider: 'radial-gradient(circle, #36363A 0%, rgba(61, 61, 67, 0) 100%)',
   },
-
-  mdx: {
-    note: '#386de3',
-    noteBackground: '#14151d',
-    tip: '#386de3',
-    tipBackground: '#14151d',
-    important: '#8259dd',
-    importantBackground: '#1a1026',
-    warning: '#966c23',
-    warningBackground: '#1a1612',
-    caution: '#c9453c',
-    cautionBackground: '#1a0f0f',
-  },
 });
 
 export const theme = createGlobalTheme(':root', {
-  colors,
-  fonts,
-  sizes,
-  layouts,
-  typographies,
-  zIndices,
+  fontFamily,
+  fontSize,
+  typography,
+  size,
+  color,
+  layout,
+  zIndex,
 });

@@ -1,7 +1,7 @@
-export const profile = {
+export const PROFILE = {
   cardBackgroundColor: '#FAEE5D',
-  modalButtonColor: '#AB8C20',
 
+  profileImage: '/static/profile.webp',
   profileImageShadowColor: 'rgba(232, 114, 24, 0.43)',
   profileImageFilter: '',
   authorTextColor: '#302C1D',
@@ -15,5 +15,5 @@ export const profile = {
   ],
 };
 
-export const playlistEmbedUrl =
+export const PLAYLIST =
   'https://embed.music.apple.com/kr/playlist/chestnut/pl.u-Zmblx9rUl6Y0zq?l=en-GB';

@@ -1,8 +1,17 @@
-export const metadata = {
-  title: 'semantic',
-  author: 'Knesssn',
-  description: 'Make your ✨gorgeous post with semantic',
-  siteUrl: `https://semantic.nylonbricks.com`,
-  email: 'contact@nylonbricks.com',
-  thumbnail: '/assets/images/thumbnail.png',
+export const METADATA = {
+  SITE: {
+    URL: 'https://semantic.nylonbricks.com',
+    NAME: 'semantic',
+    DESCRIPTION: 'Make your ✨gorgeous blog with semantic',
+    PREVIEW_IMAGE: 'https://semantic.nylonbricks.com/static/preview.png',
+  },
+
+  AUTHOR: {
+    NAME: 'HAKI',
+    TWITTER: 'https://twitter.com/masonthecode',
+  },
+};
+
+export const POST = {
+  PER_PAGE: 10,
 };

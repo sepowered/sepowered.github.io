@@ -1,5 +1,12 @@
 import { globalStyle } from '@vanilla-extract/css';
 
+globalStyle('*', {
+  margin: 0,
+  padding: 0,
+  font: 'inherit',
+  color: 'inherit',
+});
+
 globalStyle('*, :after, :before', {
   boxSizing: 'border-box',
 });
@@ -15,9 +22,9 @@ globalStyle(':root', {
   tabSize: 4,
 });
 
-globalStyle('html, body', {
-  height: '100%',
-});
+globalStyle('html', { scrollBehavior: 'smooth' });
+
+globalStyle('html, body', { height: '100%' });
 
 globalStyle('img, picture, video, canvas, svg', {
   display: 'block',
@@ -30,18 +37,15 @@ globalStyle('button', {
   cursor: 'pointer',
 });
 
-globalStyle('a, abbr', {
-  textDecoration: 'none',
-});
+globalStyle('a, abbr', { textDecoration: 'none' });
 
 globalStyle('table', {
   borderCollapse: 'collapse',
   borderSpacing: 0,
 });
 
-globalStyle('*', {
-  margin: 0,
+globalStyle('ul', {
+  listStyle: 'none',
   padding: 0,
-  font: 'inherit',
-  color: 'inherit',
+  margin: 0,
 });
