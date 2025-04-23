@@ -1,4 +1,5 @@
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import type { NextConfig } from 'next';
 import { withContentlayer } from 'next-contentlayer2';
@@ -19,6 +20,11 @@ const nextConfig: NextConfig = {
   },
   webpack: (config) => {
     config.plugins.push(
+      new CleanWebpackPlugin({
+        dry: false,
+        dangerouslyAllowCleanPatternsOutsideProject: true,
+        cleanOnceBeforeBuildPatterns: [path.join(process.cwd(), 'public', 'content')],
+      }),
       new CopyWebpackPlugin({
         patterns: [
           {

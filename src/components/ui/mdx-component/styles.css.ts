@@ -14,27 +14,18 @@ export const h2 = style({
 });
 
 export const h3 = style({
-  ...theme.typography.h3,
+  fontSize: theme.fontSize.md,
   paddingTop: rem(36),
 });
 
-export const h4 = style({
-  ...theme.typography.h4,
+globalStyle(`${root} :is(h4, h5, h6)`, {
+  fontSize: theme.fontSize.base,
   paddingTop: rem(24),
 });
 
-export const h5 = style({
-  ...theme.typography.h5,
-  paddingTop: rem(24),
-});
-
-export const h6 = style({
-  ...theme.typography.h6,
-  paddingTop: rem(24),
-});
-
-globalStyle(`:is(${h2}, ${h3}, ${h4}, ${h5}, ${h6})`, {
+globalStyle(`${root} :is(h2, h3, h4, h5, h6)`, {
   color: theme.color.gray.accent,
+  fontWeight: 600,
   scrollMarginTop: rem(67),
 });
 
@@ -112,17 +103,15 @@ export const blockquote = style({
 
 globalStyle(`${root} a`, {
   color: theme.color.gray.bold,
+  textDecoration: 'none',
   lineHeight: 1.8,
+  borderBottom: `${rem(1)} solid ${theme.color.background06}`,
   opacity: 1,
   transition: 'opacity 150ms ease-in-out',
 });
 
 globalStyle(`${root} a:hover`, {
   opacity: 0.7,
-});
-
-globalStyle(`${root} a[target="_blank"]`, {
-  textDecoration: 'underline',
 });
 
 globalStyle(`${root} a[target="_blank"]::after`, {
@@ -140,4 +129,8 @@ globalStyle(`${darkMode} ${root} a[target="_blank"]::after`, {
   background: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23DDDDDD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>')`,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
+});
+
+globalStyle(`${root} strong`, {
+  fontWeight: 600,
 });

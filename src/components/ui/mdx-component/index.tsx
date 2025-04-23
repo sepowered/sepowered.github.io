@@ -23,21 +23,6 @@ export const MdxComponent = ({ code, blurDataURLs = {} }: MdxComponentProps) => 
         {children}
       </h3>
     ),
-    h4: ({ children, ...props }: ComponentProps<'h4'>) => (
-      <h4 className={styles.h4} {...props}>
-        {children}
-      </h4>
-    ),
-    h5: ({ children, ...props }: ComponentProps<'h5'>) => (
-      <h5 className={styles.h5} {...props}>
-        {children}
-      </h5>
-    ),
-    h6: ({ children, ...props }: ComponentProps<'h6'>) => (
-      <h6 className={styles.h6} {...props}>
-        {children}
-      </h6>
-    ),
     p: ({ children, ...props }: ComponentProps<'p'>) => (
       <p className={styles.p} {...props}>
         {children}
