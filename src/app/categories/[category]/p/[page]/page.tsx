@@ -1,9 +1,10 @@
 import dayjs from 'dayjs';
+import { type Metadata } from 'next';
 
 import { allPosts } from '@contentlayer/generated';
 import { Pagination, PostList } from '@semantic/components/ui';
 import { POST, ROUTES } from '@semantic/constants';
-import { slugify } from '@semantic/utils';
+import { generatePageMetadata, slugify } from '@semantic/utils';
 
 import * as styles from './page.css';
 
@@ -26,8 +27,8 @@ const CategoriesPage = async ({ params }: CategoriesPageProps) => {
   return (
     <>
       <h1 className={styles.title}>
-        {categoryPosts.length > 0 
-          ? `${categoryPosts[0].category} (${categoryPosts.length})` 
+        {categoryPosts.length > 0
+          ? `${categoryPosts[0].category} (${categoryPosts.length})`
           : `${category} (0 posts)`}
       </h1>
       <PostList posts={currentPosts} />
@@ -53,5 +54,20 @@ export const generateStaticParams = () => {
       category: slugify(category),
       page: (i + 1).toString(),
     }));
+  });
+};
+
+export const generateMetadata = async ({ params }: CategoriesPageProps): Promise<Metadata> => {
+  const { category, page } = await params;
+  const current = parseInt(page || '1', 10);
+  const categoryPosts = allPosts.filter((post) => slugify(post.category) === category);
+  const categoryName = categoryPosts[0]?.category ?? category;
+
+  return generatePageMetadata({
+    title: categoryName,
+    path:
+      current === 1
+        ? `${ROUTES.CATEGORIES}/${category}`
+        : `${ROUTES.CATEGORIES}/${category}/p/${current}`,
   });
 };

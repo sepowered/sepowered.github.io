@@ -1,20 +1,29 @@
+import { type Metadata } from 'next';
+
 import { allPosts } from '@contentlayer/generated';
-import { slugify } from '@semantic/utils';
+import { ROUTES } from '@semantic/constants';
+import { generatePageMetadata, slugify } from '@semantic/utils';
 
 import CategoriesPage from './p/[page]/page';
 
-type CategoryRootProps = {
-  params: Promise<{ category: string }>;
-};
-
-const CategoryRootPage = async ({ params }: CategoryRootProps) => {
-  const resolvedParams = await params;
-  return await CategoriesPage({ params: Promise.resolve({ ...resolvedParams, page: '1' }) });
-};
-
-export default CategoryRootPage;
+export default CategoriesPage;
 
 export const generateStaticParams = () => {
   const categories = [...new Set(allPosts.map((post) => post.category))];
   return categories.map((category) => ({ category: slugify(category) }));
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}): Promise<Metadata> => {
+  const { category } = await params;
+  const categoryPosts = allPosts.filter((post) => slugify(post.category) === category);
+  const categoryName = categoryPosts[0]?.category ?? category;
+
+  return generatePageMetadata({
+    title: categoryName,
+    path: `${ROUTES.CATEGORIES}/${category}`,
+  });
 };

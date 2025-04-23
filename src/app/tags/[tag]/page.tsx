@@ -1,20 +1,26 @@
+import { type Metadata } from 'next';
+
 import { allPosts } from '@contentlayer/generated';
-import { slugify } from '@semantic/utils';
+import { ROUTES } from '@semantic/constants';
+import { generatePageMetadata, slugify } from '@semantic/utils';
 
 import TagsPage from './p/[page]/page';
 
-type TagRootPageProps = {
-  params: Promise<{ tag: string }>;
-};
-
-const TagRootPage = async ({ params }: TagRootPageProps) => {
-  const resolvedParams = await params;
-  return await TagsPage({ params: Promise.resolve({ ...resolvedParams, page: '1' }) });
-};
-
-export default TagRootPage;
+export default TagsPage;
 
 export const generateStaticParams = () => {
   const tags = [...new Set(allPosts.flatMap((post) => post.tags || []))];
   return tags.map((tag) => ({ tag: slugify(tag) }));
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ tag: string }>;
+}): Promise<Metadata> => {
+  const { tag } = await params;
+  const tagPosts = allPosts.filter((post) => post.tags?.some((t) => slugify(t) === tag));
+  const tagName = tagPosts[0]?.tags?.find((t) => slugify(t) === tag) ?? tag;
+
+  return generatePageMetadata({ title: tagName, path: `${ROUTES.TAGS}/${tag}` });
 };

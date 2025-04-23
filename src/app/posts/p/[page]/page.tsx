@@ -1,8 +1,10 @@
 import dayjs from 'dayjs';
+import { type Metadata } from 'next';
 
 import { allPosts } from '@contentlayer/generated';
 import { Pagination, PostList } from '@semantic/components/ui';
 import { POST, ROUTES } from '@semantic/constants';
+import { generatePageMetadata } from '@semantic/utils';
 
 import * as styles from './page.css';
 
@@ -15,7 +17,9 @@ const PostsPage = async ({ params }: PostsPageProps) => {
   const currentPage = parseInt(page || '1', 10);
   const start = (currentPage - 1) * POST.PER_PAGE;
   const end = start + POST.PER_PAGE;
-  const sortedPosts = allPosts.sort((a, b) => (dayjs(a.createdAt).isAfter(dayjs(b.createdAt)) ? -1 : 1));
+  const sortedPosts = allPosts.sort((a, b) =>
+    dayjs(a.createdAt).isAfter(dayjs(b.createdAt)) ? -1 : 1,
+  );
   const currentPosts = sortedPosts.slice(start, end);
 
   return (
@@ -39,4 +43,15 @@ export const generateStaticParams = () => {
   return Array.from({ length: totalPages }, (_, i) => ({
     page: (i + 1).toString(),
   }));
+};
+
+export const generateMetadata = async ({ params }: PostsPageProps): Promise<Metadata> => {
+  const { page } = await params;
+  const current = parseInt(page || '1', 10);
+  const title = current === 1 ? 'Posts' : `Posts - Page ${current}`;
+
+  return generatePageMetadata({
+    title,
+    path: current === 1 ? ROUTES.POSTS : `${ROUTES.POSTS}/p/${current}`,
+  });
 };
