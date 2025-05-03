@@ -29,7 +29,7 @@ const roboto = Roboto_Mono({
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ko" suppressHydrationWarning>
       <body className={clsx(roboto.variable, pretendard.variable)}>
         <ThemeProvider
           attribute="class"
