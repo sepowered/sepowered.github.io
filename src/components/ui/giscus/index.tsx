@@ -19,10 +19,10 @@ export const Giscus = ({ ...props }: GiscusProps) => {
     const attributes = {
       src: 'https://giscus.app/client.js',
       'data-repo': 'sepowered/stileim-blog-comments',
-      'data-repo-id': 'R_kgDOMljSQQ',
+      'data-repo-id': 'R_kgDOMygpng',
       'data-category': 'General',
-      'data-category-id': 'DIC_kwDOMljSQc4CpWhQ',
-      'data-mapping': 'title',
+      'data-category-id': 'DIC_kwDOMygpns4CiiLp',
+      'data-mapping': 'pathname',
     };
 
     const script = document.createElement('script');
