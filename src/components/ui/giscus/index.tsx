@@ -18,18 +18,11 @@ export const Giscus = ({ ...props }: GiscusProps) => {
 
     const attributes = {
       src: 'https://giscus.app/client.js',
-      'data-repo': 'nylon-bricks/semantic',
+      'data-repo': 'sepowered/stileim-blog-comments',
       'data-repo-id': 'R_kgDOMljSQQ',
       'data-category': 'General',
       'data-category-id': 'DIC_kwDOMljSQc4CpWhQ',
       'data-mapping': 'title',
-      'data-strict': '0',
-      'data-reactions-enabled': '1',
-      'data-emit-metadata': '0',
-      'data-input-position': 'bottom',
-      'data-theme': theme,
-      'data-lang': 'en',
-      crossorigin: 'anonymous',
     };
 
     const script = document.createElement('script');
