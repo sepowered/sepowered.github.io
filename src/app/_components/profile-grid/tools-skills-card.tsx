@@ -1,6 +1,6 @@
 'use client';
 
-import LogoLoop from '@semantic/components/ui/logo-loop.jsx';
+import LogoLoop from '@semantic/components/ui/logo-loop';
 
 import Card from './card';
 
