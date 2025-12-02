@@ -23,8 +23,8 @@ export const HeroSection = ({
                 <h1
                   className="text-6xl tablet:text-7xl max-[768px]:text-4xl max-[426px]:text-4xl text-[var(--color-gray-accent)] leading-[1.1]"
                   style={{
-                    fontFamily: "'Instrument Serif', serif",
-                    fontWeight: 500,
+                    fontFamily: 'var(--font-instrument-serif)',
+                    fontWeight: 400,
                     letterSpacing: '-0.05em',
                   }}
                 >

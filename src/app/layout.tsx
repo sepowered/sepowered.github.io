@@ -9,12 +9,12 @@ import { Layout } from '@semantic/components/layout/root';
 import { ToastProvider } from '@semantic/components/ui';
 import { METADATA } from '@semantic/constants';
 
-import { RobotoMono } from './_fonts';
+import { InstrumentSerif, RobotoMono } from './_fonts';
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang={METADATA.SITE.LANGUAGE} suppressHydrationWarning>
-      <body className={RobotoMono.variable}>
+      <body className={`${RobotoMono.variable} ${InstrumentSerif.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ToastProvider>
             <Layout>{children}</Layout>
