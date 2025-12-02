@@ -7,6 +7,7 @@ import { ProjectList } from '@semantic/components/project/project-list';
 import { PostGrid } from '@semantic/components/ui';
 import { ROUTES } from '@semantic/constants';
 
+import { HeroSection } from './_components/hero-section';
 import { ProfileGrid } from './_components/profile-grid';
 
 const getSortedPosts = (posts: Post[]) => {
@@ -32,7 +33,14 @@ const HomePage = () => {
 
   return (
     <>
-      <ProfileGrid />
+      <HeroSection
+        title="borderless,limitless."
+        subtitle="경계없는,한계없는. 기획자 노권후입니다."
+        description={`프로젝트를 화면 너머의 현실 세계의 맥락에서 바라보고,\n기술과 경험을 연결해 문제를 해결하고자 합니다.\n경계없는 시선과 한계없이 생각하는 Problem Solver 노권후입니다.`}
+      />
+      <div className="pt-[4.375rem]">
+        <ProfileGrid />
+      </div>
 
       <section className="column pt-[4.375rem] gap-[1.875rem]" aria-labelledby="projects-heading">
         <div className="row-between">
