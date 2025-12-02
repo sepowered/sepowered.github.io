@@ -1,6 +1,5 @@
 'use client';
 
-// @ts-expect-error - LogoLoop is JSX
 import LogoLoop from '@semantic/components/ui/logo-loop.jsx';
 
 import Card from './card';
